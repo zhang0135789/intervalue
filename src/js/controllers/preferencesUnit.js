@@ -59,11 +59,11 @@ angular.module('copayApp.controllers').controller('preferencesUnitController',
 			}
         ];
 
-        this.unitName = this.unitOpts[2].unitName;  // 设置默认单元，刘星修改
+        this.unitName = this.unitOpts[2].unitName;  // 设置默认单元
 
         //保存单元设置
         this.save = function (newUnit) {
-            newUnit = this.unitOpts[2];             // 设置默认单元，刘星修改
+            newUnit = this.unitOpts[2];             // 设置默认单元
             var opts = {
                 wallet: {
                     settings: {

@@ -3,7 +3,7 @@ angular.module('copayApp.services')
     .factory('uxLanguage', function languageService($log, lodash, gettextCatalog, amMoment, configService) {
         var root = {};
 
-        // 设置语言列表，仅保留英文和中文，刘星修改
+        // 设置语言列表，仅保留英文和中文
         root.availableLanguages = [{
             name: '中文',
             isoCode: 'zh_CN',
