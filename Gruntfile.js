@@ -313,7 +313,7 @@ module.exports = function (grunt) {
 				options: {
 					maintainer: {
 						name: 'InterValue',
-						email: 'intervalue@intervalue.live'
+						email: 'intervalue@inve.one'
 					},
 					long_description: 'Smart payments made simple',
 					target_architecture: 'amd64'

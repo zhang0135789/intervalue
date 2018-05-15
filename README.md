@@ -1,8 +1,8 @@
-InterValue is a wallet for storage and transfer of decentralized value.  See [intervalue.live](https://intervalue.live/).
+InterValue is a wallet for storage and transfer of decentralized value.  See [inve.one](https://inve.one/).
 
 ## Binary Downloads
 
-[intervalue.live](https://intervalue.live/)
+[inve.one](https://inve.one/)
 
 ## Main Features
 
@@ -116,7 +116,7 @@ This will download all partial and complete language translations while also cle
 
 * [GitHub Issues](https://github.com/intervalue/intervalue/issues)
   * Open an issue if you are having problems with this project
-* [Email Support](mailto:intervalue@intervalue.live)
+* [Email Support](mailto:intervalue@inve.one)
 
 ## Credits
 

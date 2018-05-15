@@ -5,7 +5,7 @@
 #define MyAppPackageName "InterValue"
 #define MyAppVersion "1.0.0"
 #define MyAppPublisher "InterValue"
-#define MyAppURL "https://intervalue.live"
+#define MyAppURL "https://inve.one"
 #define MyAppExeName "InterValue.exe"
 
 [Setup]

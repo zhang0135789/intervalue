@@ -743,7 +743,7 @@ angular.module('copayApp.controllers')
 				}
 			}
 			return {
-				message: "Here is your link to receive " + amount + " " + asset + usd_amount_str + ": https://intervalue.live/openapp.html#textcoin?" + mnemonic,
+				message: "Here is your link to receive " + amount + " " + asset + usd_amount_str + ": https://inve.one/openapp.html#textcoin?" + mnemonic,
 				subject: "InterValue user beamed you money"
 			}
 		}
