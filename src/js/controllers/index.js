@@ -1,12 +1,12 @@
 'use strict';
 
 var async = require('async');
-var constants = require('miaochaincore/constants.js');
-var mutex = require('miaochaincore/mutex.js');
-var eventBus = require('miaochaincore/event_bus.js');
-var objectHash = require('miaochaincore/object_hash.js');
-var ecdsaSig = require('miaochaincore/signature.js');
-var breadcrumbs = require('miaochaincore/breadcrumbs.js');
+var constants = require('intervaluecore/constants.js');
+var mutex = require('intervaluecore/mutex.js');
+var eventBus = require('intervaluecore/event_bus.js');
+var objectHash = require('intervaluecore/object_hash.js');
+var ecdsaSig = require('intervaluecore/signature.js');
+var breadcrumbs = require('intervaluecore/breadcrumbs.js');
 var Bitcore = require('bitcore-lib');
 var EventEmitter = require('events').EventEmitter;
 
@@ -53,7 +53,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
 
 
     function updatePublicKeyRing(walletClient, onDone) {
-        var walletDefinedByKeys = require('miaochaincore/wallet_defined_by_keys.js');
+        var walletDefinedByKeys = require('intervaluecore/wallet_defined_by_keys.js');
         walletDefinedByKeys.readCosigners(walletClient.credentials.walletId, function (arrCosigners) {
             var arrApprovedDevices = arrCosigners.filter(function (cosigner) {
                 return cosigner.approval_date;
@@ -77,8 +77,8 @@ angular.module('copayApp.controllers').controller('indexController', function ($
     }
 
     function sendBugReport(error_message, error_object) {
-        var conf = require('miaochaincore/conf.js');
-        var network = require('miaochaincore/network.js');
+        var conf = require('intervaluecore/conf.js');
+        var network = require('intervaluecore/network.js');
         var bug_sink_url = conf.WS_PROTOCOL + (conf.bug_sink_url || configService.getSync().hub);
         network.findOutboundPeerOrConnect(bug_sink_url, function (err, ws) {
             if (err)
@@ -98,7 +98,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
     self.sendBugReport = sendBugReport;
 
     if (isCordova && constants.version === '1.0') {
-        var db = require('miaochaincore/db.js');
+        var db = require('intervaluecore/db.js');
         db.query("SELECT 1 FROM units WHERE version!=? LIMIT 1", [constants.version], function (rows) {
             if (rows.length > 0) {
                 self.showErrorPopup("Looks like you have testnet data.  Please remove the app and reinstall.", function () {
@@ -130,7 +130,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
         if (error_object && error_object.bIgnore)
             return;
         self.showErrorPopup(error_message, function () {
-            var db = require('miaochaincore/db.js');
+            var db = require('intervaluecore/db.js');
             db.close();
             if (self.isCordova && navigator && navigator.app) // android
                 navigator.app.exitApp();
@@ -142,10 +142,10 @@ angular.module('copayApp.controllers').controller('indexController', function ($
     });
 
     function readLastDateString(cb) {
-        var conf = require('miaochaincore/conf.js');
+        var conf = require('intervaluecore/conf.js');
         if (conf.storage !== 'sqlite')
             return cb();
-        var db = require('miaochaincore/db.js');
+        var db = require('intervaluecore/db.js');
         db.query(
             "SELECT int_value FROM unit_authors JOIN data_feeds USING(unit) \n\
             WHERE address=? AND feed_name='timestamp' \n\
@@ -161,7 +161,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
     }
 
     function readSyncPercent(cb) {
-        var db = require('miaochaincore/db.js');
+        var db = require('intervaluecore/db.js');
         db.query("SELECT COUNT(1) AS count_left FROM catchup_chain_balls", function (rows) {
             var count_left = rows[0].count_left;
             if (count_left === 0)
@@ -242,7 +242,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
     });
 
     eventBus.on("refused_to_sign", function (device_address) {
-        var device = require('miaochaincore/device.js');
+        var device = require('intervaluecore/device.js');
         device.readCorrespondent(device_address, function (correspondent) {
             notification.success(gettextCatalog.getString('Refused'), correspondent.name + " refused to sign the transaction");
         });
@@ -279,7 +279,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
             return;
         var walletName = client.credentials.walletName;
         updatePublicKeyRing(client);
-        var device = require('miaochaincore/device.js');
+        var device = require('intervaluecore/device.js');
         device.readCorrespondent(device_address, function (correspondent) {
             notification.success(gettextCatalog.getString('Success'), "Wallet " + walletName + " approved by " + correspondent.name);
         });
@@ -290,7 +290,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
         if (!client) // already deleted (maybe declined by another device)
             return;
         var walletName = client.credentials.walletName;
-        var device = require('miaochaincore/device.js');
+        var device = require('intervaluecore/device.js');
         device.readCorrespondent(device_address, function (correspondent) {
             notification.info(gettextCatalog.getString('Declined'), "Wallet " + walletName + " declined by " + (correspondent ? correspondent.name : 'peer'));
         });
@@ -316,8 +316,8 @@ angular.module('copayApp.controllers').controller('indexController', function ($
 
     // in arrOtherCosigners, 'other' is relative to the initiator
     eventBus.on("create_new_wallet", function (walletId, arrWalletDefinitionTemplate, arrDeviceAddresses, walletName, arrOtherCosigners, isSingleAddress) {
-        var device = require('miaochaincore/device.js');
-        var walletDefinedByKeys = require('miaochaincore/wallet_defined_by_keys.js');
+        var device = require('intervaluecore/device.js');
+        var walletDefinedByKeys = require('intervaluecore/wallet_defined_by_keys.js');
         device.readCorrespondentsByDeviceAddresses(arrDeviceAddresses, function (arrCorrespondentInfos) {
             // my own address is not included in arrCorrespondentInfos because I'm not my correspondent
             var arrNames = arrCorrespondentInfos.map(function (correspondent) {
@@ -404,8 +404,8 @@ angular.module('copayApp.controllers').controller('indexController', function ($
             console.log("refused signature");
         }
 
-        var bbWallet = require('miaochaincore/wallet.js');
-        var walletDefinedByKeys = require('miaochaincore/wallet_defined_by_keys.js');
+        var bbWallet = require('intervaluecore/wallet.js');
+        var walletDefinedByKeys = require('intervaluecore/wallet_defined_by_keys.js');
         var unit = objUnit.unit;
         var credentials = lodash.find(profileService.profile.credentials, {walletId: objAddress.wallet});
         mutex.lock(["signing_request-" + unit], function (unlock) {
@@ -578,7 +578,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
             }
             $scope.arrSharedWallets = arrSharedWallets;
 
-            var walletDefinedByAddresses = require('miaochaincore/wallet_defined_by_addresses.js');
+            var walletDefinedByAddresses = require('intervaluecore/wallet_defined_by_addresses.js');
             async.eachSeries(
                 arrSharedWallets,
                 function (objSharedWallet, cb) {
@@ -772,7 +772,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
             self.setAddressbook();
 
             console.log("reading cosigners");
-            var walletDefinedByKeys = require('miaochaincore/wallet_defined_by_keys.js');
+            var walletDefinedByKeys = require('intervaluecore/wallet_defined_by_keys.js');
             walletDefinedByKeys.readCosigners(self.walletId, function (arrCosignerInfos) {
                 self.copayers = arrCosignerInfos;
                 $timeout(function () {
@@ -888,7 +888,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
             return breadcrumbs.add('updateAll not complete yet');
 
         // reconnect if lost connection
-        var device = require('miaochaincore/device.js');
+        var device = require('intervaluecore/device.js');
         device.loginToHub();
 
         $timeout(function () {
@@ -1163,7 +1163,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
                 $log.debug('Wallet Transaction History:', txs);
 
                 var data = txs;
-                var filename = 'MiaoChain-' + (self.alias || self.walletName) + '.csv';
+                var filename = 'InterValue-' + (self.alias || self.walletName) + '.csv';
                 var csvContent = '';
 
                 if (!isNode) csvContent = 'data:text/csv;charset=utf-8,';
@@ -1183,7 +1183,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
                     if (it.action == 'moved')
                         _note += ' Moved:' + it.amount
 
-                    dataString = formatDate(it.time * 1000) + ',' + formatString(it.addressTo) + ',' + _note + ',' + _amount/1000000 + ',MIAO,,,,';
+                    dataString = formatDate(it.time * 1000) + ',' + formatString(it.addressTo) + ',' + _note + ',' + _amount/1000000 + ',INVE,,,,';
                     csvContent += dataString + "\n";
 
                 });
@@ -1287,7 +1287,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
             if (self.assetIndex !== self.oldAssetIndex) // it was a swipe
                 return console.log("== swipe");
             console.log('== updateHistoryFromNetwork');
-            var lightWallet = require('miaochaincore/light_wallet.js');
+            var lightWallet = require('intervaluecore/light_wallet.js');
             lightWallet.refreshLightClientHistory();
         }, 500);
     }, 5000);
@@ -1501,7 +1501,7 @@ angular.module('copayApp.controllers').controller('indexController', function ($
 
     $rootScope.$on('Local/Resume', function (event) {
         $log.debug('### Resume event');
-        var lightWallet = require('miaochaincore/light_wallet.js');
+        var lightWallet = require('intervaluecore/light_wallet.js');
         lightWallet.refreshLightClientHistory();
         //self.debouncedUpdate();
     });

@@ -120,7 +120,7 @@ Logger.prototype.setLevel = function(level) {
  * @param {*} args - the arguments to be logged.
  */
 
-var logger = new Logger('miaochain');
+var logger = new Logger('intervalue');
 var error = new Error();
 logger.setLevel('info');
 module.exports = logger;

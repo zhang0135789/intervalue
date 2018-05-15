@@ -1,10 +1,10 @@
 <div
     class="topbar-container"
     ng-include="'views/includes/topbar.html'"
-    ng-init="titleSection='About MIAO'; goBackToState = true">
+    ng-init="titleSection='About INVE'; goBackToState = true">
 </div>
 
-<!-- 关于MiaoChain视图 -->
+<!-- 关于InterValue视图 -->
 <div class="content preferences" ng-controller="preferencesAbout as about"  style="background: #ECEFF6;">
     <h4 translate class="settinth4titlel" style="background: #ECEFF6;">Release Information</h4>
     <div ng-controller="versionController as v">
@@ -17,7 +17,7 @@
                 </span>
             </li>
             <!-- 提交哈希值，刘星删除 -->
-            <!--<li ng-conf ng-click="$root.openExternalLink('https://github.com/miaochain/miaochain/tree/'+v.commitHash)">-->
+            <!--<li ng-conf ng-click="$root.openExternalLink('https://github.com/intervalue/intervalue/tree/'+v.commitHash)">-->
                 <!--<span translate>Commit hash</span>-->
                 <!--<span class="right text-gray">-->
                     <!--#{{v.commitHash}}-->

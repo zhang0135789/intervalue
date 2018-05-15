@@ -1,6 +1,6 @@
 'use strict';
 
-var breadcrumbs = require('miaochaincore/breadcrumbs.js');
+var breadcrumbs = require('intervaluecore/breadcrumbs.js');
 
 //qr-scanner标签
 angular.module('copayApp.directives')

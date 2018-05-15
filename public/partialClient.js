@@ -19210,11 +19210,11 @@ exports.database = {};
 
 
 /*
-There are 3 ways to customize conf in modules that use miaochaincore lib:
+There are 3 ways to customize conf in modules that use intervaluecore lib:
 1. drop a custom conf.js into the project root.  The code below will find it and merge.  Will not work under browserify.
 2. drop a custom conf.json into the app's data dir inside the user's home dir.  The code below will find it and merge.  Will not work under browserify.
 3. require() this conf and modify it:
-var conf = require('miaochaincore/conf.js');
+var conf = require('intervaluecore/conf.js');
 conf.custom_property = 'custom value';
 You should do it as early as possible during your app's startup.
 The later require()s of this conf will see the modified version.
@@ -19257,16 +19257,16 @@ if (typeof window === 'undefined' || !window.cordova){ // desktop
 if (exports.storage === 'mysql'){
 	exports.database.max_connections = exports.database.max_connections || 30;
 	exports.database.host = exports.database.host || 'localhost';
-	exports.database.name = exports.database.name || 'miaochain';
-	exports.database.user = exports.database.user || 'miaochain';
+	exports.database.name = exports.database.name || 'intervalue';
+	exports.database.user = exports.database.user || 'intervalue';
 }
 else if (exports.storage === 'sqlite'){
 	exports.database.max_connections = exports.database.max_connections || 1;
-	exports.database.filename = exports.database.filename || (exports.bLight ? 'miaochain-light.sqlite' : 'miaochain.sqlite');
+	exports.database.filename = exports.database.filename || (exports.bLight ? 'intervalue-light.sqlite' : 'intervalue.sqlite');
 }
 
 
-}).call(this,require('_process'),"/node_modules/miaochaincore")
+}).call(this,require('_process'),"/node_modules/intervaluecore")
 },{"./enforce_singleton.js":10,"_process":16}],8:[function(require,module,exports){
 /*jslint node: true */
 "use strict";
@@ -19356,10 +19356,10 @@ module.exports.executeInTransaction = executeInTransaction;
 /*jslint node: true */
 "use strict";
 
-if (global._bMiaoChainCoreLoaded)
-	throw Error("Looks like you are loading multiple copies of miaochaincore, which is not supported.\nRunnung 'npm dedupe' might help.");
+if (global._bInterValueCoreLoaded)
+	throw Error("Looks like you are loading multiple copies of intervaluecore, which is not supported.\nRunnung 'npm dedupe' might help.");
 
-global._bMiaoChainCoreLoaded = true;
+global._bInterValueCoreLoaded = true;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],11:[function(require,module,exports){
@@ -20099,7 +20099,7 @@ function createDatabaseIfNecessary(db_name, onDbReady){
 	}
 }
 
-}).call(this,"/node_modules/miaochaincore")
+}).call(this,"/node_modules/intervaluecore")
 },{"./sqlite_migrations":13,"async":3,"events":4,"lodash":5,"os":15,"sqlite3":undefined}],15:[function(require,module,exports){
 exports.endianness = function () { return 'LE' };
 
@@ -20448,8 +20448,8 @@ exports.get = get;
 exports.set = set;
 
 },{"lodash":5}],18:[function(require,module,exports){
-var BLACKBYTES_ASSET = require('miaochaincore/constants').BLACKBYTES_ASSET;
-var balances = require('miaochaincore/balances');
+var BLACKBYTES_ASSET = require('intervaluecore/constants').BLACKBYTES_ASSET;
+var balances = require('intervaluecore/balances');
 var utils = require('../../angular-bitcore-wallet-client/bitcore-wallet-client/lib/common/utils');
 var fileSystem = require('./fileStorage');
 var completeClientLoaded = false;
@@ -20570,7 +20570,7 @@ function initWallet() {
 
 
 	function loadCompleteClient(showClient) {
-		self._bMiaoChainCoreLoaded = false; //"fix" : Looks like you are loading multiple copies of miaochain core, which is not supported. Running 'npm dedupe' might help.
+		self._bInterValueCoreLoaded = false; //"fix" : Looks like you are loading multiple copies of intervalue core, which is not supported. Running 'npm dedupe' might help.
 		var body = document.body;
 		var page = document.createElement('div');
 
@@ -20578,10 +20578,10 @@ function initWallet() {
 		var angularJs = document.createElement('script');
 		angularJs.src = 'angular.js';
 		angularJs.onload = function() {
-			var miaochainJS = document.createElement('script');
-			miaochainJS.src = 'miaochain.js';
-			body.appendChild(miaochainJS);
-			miaochainJS.onload = function() {
+			var intervalueJS = document.createElement('script');
+			intervalueJS.src = 'intervalue.js';
+			body.appendChild(intervalueJS);
+			intervalueJS.onload = function() {
 				if(showClient) showCompleteClient();
 			}
 		};
@@ -20830,4 +20830,4 @@ var swipeListener = new _swipeListener();
 function getFromId(id) {
 	return document.getElementById(id);
 }
-},{"../../angular-bitcore-wallet-client/bitcore-wallet-client/lib/common/utils":2,"./fileStorage":17,"miaochaincore/balances":6,"miaochaincore/constants":8}]},{},[18]);
+},{"../../angular-bitcore-wallet-client/bitcore-wallet-client/lib/common/utils":2,"./fileStorage":17,"intervaluecore/balances":6,"intervaluecore/constants":8}]},{},[18]);

@@ -1,7 +1,7 @@
 'use strict';
 
-var breadcrumbs = require('miaochaincore/breadcrumbs.js');
-var constants = require('miaochaincore/constants.js');
+var breadcrumbs = require('intervaluecore/breadcrumbs.js');
+var constants = require('intervaluecore/constants.js');
 var _ = require('lodash');
 
 angular.module('copayApp.services')
@@ -206,8 +206,8 @@ angular.module('copayApp.services')
                         return cb(err);
                     root._setFocus(focusedWalletId, function () {
                         console.log("focusedWalletId", focusedWalletId);
-                        var Wallet = require('miaochaincore/wallet.js');
-                        var device = require('miaochaincore/device.js');
+                        var Wallet = require('intervaluecore/wallet.js');
+                        var device = require('intervaluecore/device.js');
                         var config = configService.getSync();
                         var firstWc = root.walletClients[lodash.keys(root.walletClients)[0]];
                         if (root.profile.xPrivKeyEncrypted) {
@@ -341,12 +341,12 @@ angular.module('copayApp.services')
                 if (err)
                     return cb(err);
                 var config = configService.getSync();
-                require('miaochaincore/wallet.js'); // load hub/ message handlers
-                var device = require('miaochaincore/device.js');
+                require('intervaluecore/wallet.js'); // load hub/ message handlers
+                var device = require('intervaluecore/device.js');
                 var tempDeviceKey = device.genPrivKey();
                 // initDeviceProperties sets my_device_address needed by walletClient.createWallet
                 walletClient.initDeviceProperties(walletClient.credentials.xPrivKey, null, config.hub, config.deviceName);
-                var walletName = gettextCatalog.getString('MiaoChain');     //默认钱包名称
+                var walletName = gettextCatalog.getString('InterValue');     //默认钱包名称
                 walletClient.createWallet(walletName, 1, 1, {
                     //	isSingleAddress: true,
                     network: 'livenet'
@@ -381,7 +381,7 @@ angular.module('copayApp.services')
                 });
                 return console.log('need password to create new wallet');
             }
-            var walletDefinedByKeys = require('miaochaincore/wallet_defined_by_keys.js');
+            var walletDefinedByKeys = require('intervaluecore/wallet_defined_by_keys.js');
             walletDefinedByKeys.readNextAccount(function (account) {
                 console.log("next account = " + account);
                 if (!opts.extendedPrivateKey && !opts.mnemonic) {
@@ -466,7 +466,7 @@ angular.module('copayApp.services')
             // check if exists
             var w = lodash.find(root.profile.credentials, {'walletId': walletId});
             if (w)
-                return cb(gettext('Wallet already in MiaoChain' + ": ") + w.walletName);
+                return cb(gettext('Wallet already in InterValue' + ": ") + w.walletName);
 
             root.profile.credentials.push(JSON.parse(walletClient.export()));
             root.setWalletClients();
@@ -763,7 +763,7 @@ angular.module('copayApp.services')
         };
 
         root.replaceProfile = function (xPrivKey, mnemonic, myDeviceAddress, cb) {
-            var device = require('miaochaincore/device.js');
+            var device = require('intervaluecore/device.js');
 
             root.profile.credentials = [];
             root.profile.xPrivKey = xPrivKey;

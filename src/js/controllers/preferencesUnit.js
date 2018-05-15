@@ -10,7 +10,7 @@ angular.module('copayApp.controllers').controller('preferencesUnitController',
         this.unitOpts = [
             {
                 name: 'bytes',
-                shortName: 'MIAO',
+                shortName: 'INVE',
                 value: 1,
                 decimals: 0,
                 code: 'one',
@@ -24,7 +24,7 @@ angular.module('copayApp.controllers').controller('preferencesUnitController',
             }
             , {
                 name: 'MBytes (1,000,000 bytes)',
-                shortName: 'MIAO',
+                shortName: 'INVE',
                 value: 1000000,
                 decimals: 6,
                 code: 'mega',

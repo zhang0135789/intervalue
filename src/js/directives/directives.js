@@ -17,13 +17,13 @@ function selectText(element) {
 }
 
 function isValidAddress(value) {
-	var ValidationUtils = require('miaochaincore/validation_utils.js');
+	var ValidationUtils = require('intervaluecore/validation_utils.js');
 	if (!value) {
 		return false;
 	}
 
-	// miaochain uri
-	var conf = require('miaochaincore/conf.js');
+	// intervalue uri
+	var conf = require('intervaluecore/conf.js');
 	var re = new RegExp('^' + conf.program + ':([A-Z2-7]{32})\b', 'i');
 	var arrMatches = value.match(re);
 	if (arrMatches) {
@@ -34,7 +34,7 @@ function isValidAddress(value) {
 }
 
 function isValidEmail(value) {
-	var ValidationUtils = require('miaochaincore/validation_utils.js');
+	var ValidationUtils = require('intervaluecore/validation_utils.js');
 
 	// 刘星屏蔽
 	// return ValidationUtils.isValidEmail(value);
@@ -202,7 +202,7 @@ angular.module('copayApp.directives')
                             return value;
                         }*/
 						//console.log('-- amount');
-						var constants = require('miaochaincore/constants.js');
+						var constants = require('intervaluecore/constants.js');
 						var asset = attrs.validAmount;
 						var settings = configService.getSync().wallet.settings;
 						var unitValue = 1;
@@ -478,8 +478,8 @@ angular.module('copayApp.directives')
 				$scope.logo_url = $scope.negative ? 'img/icons/icon-white-32.png' : 'img/icons/icon-black-32.png';
 			},
 			replace: true,
-			//template: '<img ng-src="{{ logo_url }}" alt="MiaoChain">'
-			template: '<div><img ng-src="{{ logo_url }}" alt="MiaoChain"><br>MiaoChain</div>'
+			//template: '<img ng-src="{{ logo_url }}" alt="InterValue">'
+			template: '<div><img ng-src="{{ logo_url }}" alt="InterValue"><br>InterValue</div>'
 		}
 	})
 	.directive('availableBalance', function () {

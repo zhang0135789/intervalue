@@ -14,9 +14,9 @@ checkOK() {
 
 # Configs
 BUILDDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PROJECT="$BUILDDIR/../../miaochainbuilds/project-$1"
-if [ ! -d "$BUILDDIR/../../miaochainbuilds" ]; then
-    mkdir -p $BUILDDIR/../../miaochainbuilds
+PROJECT="$BUILDDIR/../../intervaluebuilds/project-$1"
+if [ ! -d "$BUILDDIR/../../intervaluebuilds" ]; then
+    mkdir -p $BUILDDIR/../../intervaluebuilds
 fi
 
 CURRENT_OS=$1
@@ -52,7 +52,7 @@ echo "Project directory is $PROJECT"
 if [ ! -d $PROJECT ]; then
 	cd $BUILDDIR
 	echo "${OpenColor}${Green}* Creating project... ${CloseColor}"
-	cordova create ../../miaochainbuilds/project-$1 org.miaochain.wallet MiaoChain
+	cordova create ../../intervaluebuilds/project-$1 org.intervalue.wallet InterValue
 	checkOK
 
 	cd $PROJECT
@@ -93,7 +93,7 @@ if [ ! -d $PROJECT ]; then
 	cordova plugin add cordova-plugin-statusbar
 	checkOK
 
-	cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=miaochain
+	cordova plugin add cordova-plugin-customurlscheme --variable URL_SCHEME=intervalue
 	checkOK
 
 	cordova plugin add cordova-plugin-inappbrowser
@@ -157,12 +157,12 @@ if [ ! -d $PROJECT ]; then
 fi
 
 if $DBGJS; then
-	echo "${OpenColor}${Green}* Generating miaochain bundle (debug js)...${CloseColor}"
+	echo "${OpenColor}${Green}* Generating intervalue bundle (debug js)...${CloseColor}"
 	cd $BUILDDIR/..
 	grunt cordova
 	checkOK
 else
-	echo "${OpenColor}${Green}* Generating miaochain bundle...${CloseColor}"
+	echo "${OpenColor}${Green}* Generating intervalue bundle...${CloseColor}"
 	cd $BUILDDIR/..
 	grunt cordova-prod
 	checkOK
@@ -178,8 +178,8 @@ cp -af public/** $PROJECT/www
 checkOK
 
 echo "${OpenColor}${Green}* Copying initial database...${CloseColor}"
-cp node_modules/miaochaincore/initial.miaochain.sqlite $PROJECT/www
-cp node_modules/miaochaincore/initial.miaochain-light.sqlite $PROJECT/www
+cp node_modules/intervaluecore/initial.intervalue.sqlite $PROJECT/www
+cp node_modules/intervaluecore/initial.intervalue-light.sqlite $PROJECT/www
 checkOK
 
 node $BUILDDIR/replaceForPartialClient.js $PROJECT
@@ -194,7 +194,7 @@ checkOK
 if [ $CURRENT_OS == "ANDROID" ]; then
 	echo "Android project!!!"
 	
-	cat $BUILDDIR/android/android.css >> $PROJECT/www/css/miaochain.css
+	cat $BUILDDIR/android/android.css >> $PROJECT/www/css/intervalue.css
 
 	mkdir -p $PROJECT/platforms/android/res/xml/
 	checkOK
@@ -227,19 +227,19 @@ if [ $CURRENT_OS == "IOS" ]; then
 #  mkdir -p $PROJECT/platforms/ios
 #  checkOK
 #
-#  cp ios/MiaoChain-Info.plist $PROJECT/platforms/ios/MiaoChain-Info.plist
+#  cp ios/InterValue-Info.plist $PROJECT/platforms/ios/InterValue-Info.plist
 #  checkOK
 #
-#  mkdir -p $PROJECT/platforms/ios/MiaoChain/Resources/icons
+#  mkdir -p $PROJECT/platforms/ios/InterValue/Resources/icons
 #  checkOK
 #
-#  mkdir -p $PROJECT/platforms/ios/MiaoChain/Resources/splash
+#  mkdir -p $PROJECT/platforms/ios/InterValue/Resources/splash
 #  checkOK
 #
-#  cp -R ios/icons/* $PROJECT/platforms/ios/MiaoChain/Resources/icons
+#  cp -R ios/icons/* $PROJECT/platforms/ios/InterValue/Resources/icons
 #  checkOK
 #
-#  cp -R ios/splash/* $PROJECT/platforms/ios/MiaoChain/Resources/splash
+#  cp -R ios/splash/* $PROJECT/platforms/ios/InterValue/Resources/splash
 #  checkOK
 fi
 

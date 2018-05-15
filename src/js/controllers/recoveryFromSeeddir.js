@@ -5,20 +5,20 @@
 
 angular.module('copayApp.controllers').controller('recoveryFromSeeddir', function ($rootScope, $scope, $log, gettext, $timeout, gettextCatalog, profileService, go, notification, storageService) {
 	var async = require('async');
-	var conf = require('miaochaincore/conf.js');
-	var wallet_defined_by_keys = require('miaochaincore/wallet_defined_by_keys.js');
-	var objectHash = require('miaochaincore/object_hash.js');
+	var conf = require('intervaluecore/conf.js');
+	var wallet_defined_by_keys = require('intervaluecore/wallet_defined_by_keys.js');
+	var objectHash = require('intervaluecore/object_hash.js');
 	try {
 		var ecdsa = require('secp256k1');
 	}
 	catch (e) {
-		var ecdsa = require('miaochaincore/node_modules/secp256k1' + '');
+		var ecdsa = require('intervaluecore/node_modules/secp256k1' + '');
 	}
 	var Mnemonic = require('bitcore-mnemonic');
 	var Bitcore = require('bitcore-lib');
-	var db = require('miaochaincore/db.js');
-	var network = require('miaochaincore/network');
-	var myWitnesses = require('miaochaincore/my_witnesses');
+	var db = require('intervaluecore/db.js');
+	var network = require('intervaluecore/network');
+	var myWitnesses = require('intervaluecore/my_witnesses');
 	var fc = profileService.focusedClient;
 
 
@@ -252,7 +252,7 @@ angular.module('copayApp.controllers').controller('recoveryFromSeeddir', functio
 					witnesses: arrWitnesses
 				}, function (ws, request, response) {
 					if (response && response.error) {
-						var breadcrumbs = require('miaochaincore/breadcrumbs.js');
+						var breadcrumbs = require('intervaluecore/breadcrumbs.js');
 						breadcrumbs.add('Error scanForAddressesAndWalletsInLightClient: ' + response.error);
 						self.error = 'When scanning an error occurred, please try again later.';
 						self.scanning = false;
@@ -300,7 +300,7 @@ angular.module('copayApp.controllers').controller('recoveryFromSeeddir', functio
 
 
 	function cleanAndAddWalletsAndAddresses(assocMaxAddressIndexes) {
-		var device = require('miaochaincore/device');
+		var device = require('intervaluecore/device');
 		var arrWalletIndexes = Object.keys(assocMaxAddressIndexes);
 		if (arrWalletIndexes.length) {
 			removeAddressesAndWallets(function () {
@@ -454,7 +454,7 @@ angular.module('copayApp.controllers').controller('recoveryFromSeeddir', functio
 
 
 	function cleanAndAddWalletsAndAddressesdel(assocMaxAddressIndexes) {
-		var device = require('miaochaincore/device');
+		var device = require('intervaluecore/device');
 		var arrWalletIndexes = Object.keys(assocMaxAddressIndexes);
 		if (arrWalletIndexes.length) {
 			removeAddressesAndWallets(function () {

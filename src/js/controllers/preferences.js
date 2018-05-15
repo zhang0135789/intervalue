@@ -24,8 +24,8 @@ angular.module('copayApp.controllers')
 				this.externalSource = null;
 
 				$scope.numCosigners = fc.credentials.n;
-				var walletDefinedByKeys = require('miaochaincore/wallet_defined_by_keys.js');
-				var db = require('miaochaincore/db.js');
+				var walletDefinedByKeys = require('intervaluecore/wallet_defined_by_keys.js');
+				var db = require('intervaluecore/db.js');
 				walletDefinedByKeys.readAddresses(fc.credentials.walletId, {}, function(addresses) {
 					$scope.numAddresses = addresses.length;
 					db.query(

@@ -122,7 +122,7 @@
                                         {{balance.totalStrWithoutUnit}}
                                     </strong>
                                     <div style="margin-top: -10px">
-                                        <span style="font-size: 26px;color: #5ba6d0">MIAO</span>
+                                        <span style="font-size: 26px;color: #5ba6d0">INVE</span>
                                     </div>
                                     <!-- 资产数额字符串为空，则直接显示资产金额本地字符串 -->
                                     <div ng-if="!balance.totalStr">
@@ -277,8 +277,8 @@
 										<span class="size-12" ng-if="btx.action == 'invalid'" translate style="position: absolute; left: 0;"> (possible double spend) </span>
 
                                         <!--金额-->
-										<span ng-if="btx.action == 'received'" style="margin-left: 1px;color: #F55C01;">  {{btx.amountTx}} <span style="color: #9F9F9F;margin-top: 2px;font-size: 11px;">MIAO</span>  </span>
-										<span ng-if="btx.action == 'sent'" style="margin-left: 1px;color: #5FB534;">  {{btx.amountTx}} <span style="color: #9F9F9F;margin-top: 2px;font-size: 11px;">MIAO</span>  </span>
+										<span ng-if="btx.action == 'received'" style="margin-left: 1px;color: #F55C01;">  {{btx.amountTx}} <span style="color: #9F9F9F;margin-top: 2px;font-size: 11px;">INVE</span>  </span>
+										<span ng-if="btx.action == 'sent'" style="margin-left: 1px;color: #5FB534;">  {{btx.amountTx}} <span style="color: #9F9F9F;margin-top: 2px;font-size: 11px;">INVE</span>  </span>
 									</span>
                                 </div>
 
@@ -336,7 +336,7 @@
 
                                 <!-- 判断isCordova 电脑端下载CSV文件 -->
                                 <!--<div class="large-6 medium-6 small-6 columns" ng-show="!index.isCordova">-->
-                                <!--<input id="export_file" type="file" nwsaveas="MIAO-{{index.alias || index.walletName}}.csv" accept=".csv" style="display:none">-->
+                                <!--<input id="export_file" type="file" nwsaveas="INVE-{{index.alias || index.walletName}}.csv" accept=".csv" style="display:none">-->
                                 <!--<a class="button outline round" ng-click="index.csvHistory();" style="color: #0095ff;border: 1px solid #0095ff;font-size: 12px;padding: 10px;width: 100%;">-->
                                 <!--<i class="fi-page-export-csv"></i>-->
                                 <!--<span translate>Download CSV file</span>-->
@@ -483,8 +483,8 @@
 
 
                                 <!--金额-->
-										<span ng-if="btx.action == 'received'" style="margin-left: 1px;color: #F55C01;margin-top: -1px;">  {{btx.amountTx}} <span style="color: #9F9F9F;margin-top: 2px;font-size: 11px;">MIAO</span>  </span>
-										<span ng-if="btx.action == 'sent'" style="margin-left: 1px;color: #5FB534;margin-top: -1px;">  {{btx.amountTx}} <span style="color: #9F9F9F;margin-top: 2px;font-size: 11px;">MIAO</span>  </span>
+										<span ng-if="btx.action == 'received'" style="margin-left: 1px;color: #F55C01;margin-top: -1px;">  {{btx.amountTx}} <span style="color: #9F9F9F;margin-top: 2px;font-size: 11px;">INVE</span>  </span>
+										<span ng-if="btx.action == 'sent'" style="margin-left: 1px;color: #5FB534;margin-top: -1px;">  {{btx.amountTx}} <span style="color: #9F9F9F;margin-top: 2px;font-size: 11px;">INVE</span>  </span>
 							</span>
                                 </div>
 
@@ -540,7 +540,7 @@
 
                                 <!-- 判断isCordova 电脑端下载CSV文件 -->
                                 <!--<div class="large-6 medium-6 small-6 columns" ng-show="!index.isCordova">-->
-                                <!--<input id="export_file" type="file" nwsaveas="MIAO-{{index.alias || index.walletName}}.csv" accept=".csv" style="display:none">-->
+                                <!--<input id="export_file" type="file" nwsaveas="INVE-{{index.alias || index.walletName}}.csv" accept=".csv" style="display:none">-->
                                 <!--<a class="button outline round" ng-click="index.csvHistory();" style="color: #0095ff;border: 1px solid #0095ff;font-size: 12px;padding: 10px;width: 100%;">-->
                                 <!--<i class="fi-page-export-csv"></i>-->
                                 <!--<span translate>Download CSV file</span>-->
@@ -768,7 +768,7 @@
                                         <input type="" id="amount"
                                                ng-disabled="home.blockUx || home.lockAmount || home.bSendAll"
                                                name="amount"
-                                               ng-attr-placeholder="{{(home.bSendAll ? (index.arrBalances[index.assetIndex].asset === 'base' ? 'All minus fees' : 'All') : 'Input amount MIAO')|translate}}"
+                                               ng-attr-placeholder="{{(home.bSendAll ? (index.arrBalances[index.assetIndex].asset === 'base' ? 'All minus fees' : 'All') : 'Input amount INVE')|translate}}"
                                                ng-minlength="0.00000001" ng-maxlength="10000000000" ng-model="_amount"
                                                valid-amount="{{index.arrBalances[index.assetIndex].asset}}"
                                                ng-required="!home.bSendAll && !home.send_multiple" autocomplete="off"
@@ -778,7 +778,7 @@
                                         <a ng-if="index.arrBalances.length > 0 && index.arrBalances[index.assetIndex].asset !== 'base' && index.arrBalances[index.assetIndex].asset !== index.BLACKBYTES_ASSET && !index.arrBalances[index.assetIndex].name" style="color: #fff!important;">of
                                             {{index.arrBalances[index.assetIndex].asset.substr(0,4)}}</a>
                                         <!--</div>-->
-                                        <!--<span style="text-transform: none;font-size: 16px;flex-shrink: 0;padding-top: 10px;margin-right: 15px;margin-left:4px;">MIAO</span>-->
+                                        <!--<span style="text-transform: none;font-size: 16px;flex-shrink: 0;padding-top: 10px;margin-right: 15px;margin-left:4px;">INVE</span>-->
                                         <!-- 全部发送 -->
                                         <a ng-click="home.setSendAll()" ng-show="!home.bSendAll && !home.lockAmount"
                                            style="text-transform: none;font-size: 16px;flex-shrink: 0;    padding-top: 10px;margin-right:14px;" translate>ALL</a>
@@ -799,7 +799,7 @@
                                     <!-- 获取钱包余额-->
                                     <div style="width: 100%;padding:10px 16px;" ng-repeat="balance in index.arrBalances|filter:'base'">
 										<span style="font-size: 14px;color: #6A7D90;word-break: break-all;" ng-if="balance.totalStr && balance.totalStr.length <= 16" translate>
-											<span translate>available balance</span>:&nbsp;&nbsp;&nbsp{{balance.totalAvail}}&nbsp;&nbsp;&nbsp; MIAO
+											<span translate>available balance</span>:&nbsp;&nbsp;&nbsp{{balance.totalAvail}}&nbsp;&nbsp;&nbsp; INVE
 										</span>
                                         <!-- 资产数额字符串不超过16个字符, 显示不带单位资产数额和名称 -->
                                         <div ng-if="balance.totalStr && balance.totalStr.length > 26">
@@ -814,7 +814,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tchatfkmodel"><span class="tchatfkmodelnumber ">{{_amount == undefined ? 0 : _amount}}</span>MIAO</div>
+                            <div class="tchatfkmodel"><span class="tchatfkmodelnumber ">{{_amount == undefined ? 0 : _amount}}</span>INVE</div>
                             <div class="" ng-show="!home.onGoingProcess">
                                 <!-- 发送按钮 -->
                                 <div class=""
@@ -988,13 +988,13 @@
                             <div translate style="font-size: 16px;">Language</div>
                         </div>
                     </li>
-                    <!-- MIAO数量单位 -->
+                    <!-- INVE数量单位 -->
                     <!--<li ng-click="$root.go('preferencesGlobal.preferencesUnit')">-->
                     <!--<div class="right text-gray">-->
                     <!--{{prefGlobal.unitName}}-->
                     <!--<i class="icon-arrow-right3 size-24"></i>-->
                     <!--</div>-->
-                    <!--<div translate>Unit for MIAO</div>-->
+                    <!--<div translate>Unit for INVE</div>-->
                     <!--</li>-->
                 </ul>
 
@@ -1075,14 +1075,14 @@
                 <!--<div translate>Restore from full backup</div>-->
                 <!--</li>-->
                 <!--</ul>-->
-                <!-- 关于MiaoChain -->
+                <!-- 关于InterValue -->
                 <div class="chatbgcolorheight ng-scope" style="background: #ECEFF6;"></div>
                 <ul class="no-bullet m0">
                     <li class="settintlipaddingl"  ng-click="$root.go('preferencesGlobal.preferencesAbout')">
                         <img src="./img/settinglyou.png" class="settingarrowl right" style="margin-right: -7px;">
                         <!--<i class="icon-arrow-right3 size-24 right text-gray settintcolorl"></i>-->
                         <div ><div style="float: left;padding-right: 15px;"><img src="./img/guanyu-icon@3x.png" width="20"/></div>
-                            <div translate style="font-size: 16px;">About MIAO</div></div>
+                            <div translate style="font-size: 16px;">About INVE</div></div>
                     </li>
                 </ul>
             </div>

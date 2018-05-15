@@ -410,7 +410,7 @@ angular.module('copayApp.controllers').controller('createWallet',
 // 定义提示框内容  结束  -----------------------------------------------------------
 
         if (!isCordova){
-            var desktopApp = require('miaochaincore/desktop_app.js'+'');
+            var desktopApp = require('intervaluecore/desktop_app.js'+'');
             self.appDataDir = desktopApp.getAppDataDir();
         }
         self.isCordova = isCordova;

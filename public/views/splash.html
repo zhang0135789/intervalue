@@ -20,9 +20,9 @@
 
 		<!-- 选择是作为全节点（存储所有数据）还是轻节点（仅存储自己数据） -->
 		<!--
-			第一次进入MiaoChain的时候显示这个页面，
+			第一次进入InterValue的时候显示这个页面，
 			等设置完成后splash.step将会被赋值为device_name并保存到.config目录下，
-			以后进入打开MiaoChain将不会再显示
+			以后进入打开InterValue将不会再显示
 		-->
 		<div ng-if="splash.step === 'wallet_type'" style="background: url('img/background.png');background-size: 100% 34%;background-repeat: no-repeat">
 				<div class="chatbgcolorheight ng-scope" style="background-color: #236d97"></div>
@@ -59,7 +59,7 @@
 								<div style="margin-top:25px">
 									<div style="display: table">
 										<div style="display: table-cell; padding-right: 10px"><input type="radio" name="wallet_type" value="full" ng-model="splash.wallet_type" id="wallet_type_full"></div>
-										<div style="display: table-cell;text-align:left;"><label class="text-gray size-14" style="vertical-align: middle;font-weight: normal;color: black" for="wallet_type_full" translate>DOWNLOAD THE ENTIRE MIAOCHAIN DATABASE</label></div>
+										<div style="display: table-cell;text-align:left;"><label class="text-gray size-14" style="vertical-align: middle;font-weight: normal;color: black" for="wallet_type_full" translate>DOWNLOAD THE ENTIRE INTERVALUE DATABASE</label></div>
 									</div>
 									<div style="padding: 0px 0px 20px 22px;text-align: left">
 										<p class="text-gray size-14 m0 text-light" style="color: #999999" translate>
@@ -85,14 +85,14 @@
 		<div style="background-color: #236d97;height: 100px">
 			<div class="medium-centered small-centered large-centered columns">
 				<div style="padding-top: 32px" >
-					<span class="size-18 text-white center" style="text-transform: none;color: #FFFFFF;" translate>MiaoChain Wallet</span>
+					<span class="size-18 text-white center" style="text-transform: none;color: #FFFFFF;" translate>InterValue Wallet</span>
 					<!--<p class="text-gray size-12 m0 text-white center" donttranslate>Next Generation Globe Value Interenet</p>-->
 				</div>
 			</div>
 		</div>
 		<!-- 图标 -->
 		<div style="background-color: #eceff5;padding:45px 0;">
-			<img style="width:160px;" src="./img/MIAO1.png" alt="icon">
+			<img style="width:160px;" src="./img/INVE1.png" alt="icon">
 		</div>
 
 		<!-- 没有加载完成个人设置信息时，显示设备设置页面 -->

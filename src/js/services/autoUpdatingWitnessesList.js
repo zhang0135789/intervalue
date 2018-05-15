@@ -11,8 +11,8 @@ angular.module('copayApp.services')
   root.checkChangeWitnesses = function(){
     if (!root.autoUpdate) return;
 
-	var device = require('miaochaincore/device.js');
-	var myWitnesses = require('miaochaincore/my_witnesses.js');
+	var device = require('intervaluecore/device.js');
+	var myWitnesses = require('intervaluecore/my_witnesses.js');
     device.getWitnessesFromHub(function(err, arrWitnessesFromHub){
       if (arrWitnessesFromHub) {
         myWitnesses.readMyWitnesses(function(arrWitnesses){

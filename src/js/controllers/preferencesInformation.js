@@ -3,7 +3,7 @@
 // 钱包信息设置控制器
 angular.module('copayApp.controllers').controller('preferencesInformation',
     function ($scope, $log, $timeout, isMobile, gettextCatalog, lodash, profileService, storageService, go, configService) {
-        var constants = require('miaochaincore/constants.js');
+        var constants = require('intervaluecore/constants.js');
         var fc = profileService.focusedClient;
         var c = fc.credentials;
 
@@ -98,7 +98,7 @@ angular.module('copayApp.controllers').controller('preferencesInformation',
                     }
                     ;
 
-                    var body = 'MIAO Wallet "' + $scope.walletName + '" Addresses.\n\n';
+                    var body = 'INVE Wallet "' + $scope.walletName + '" Addresses.\n\n';
                     body += "\n";
                     body += addrs.map(function (v) {
                         return ('* ' + v.address + ' ' + v.path + ' ' + formatDate(v.createdOn));
@@ -106,7 +106,7 @@ angular.module('copayApp.controllers').controller('preferencesInformation',
 
                     window.plugins.socialsharing.shareViaEmail(
                         body,
-                        'MIAO Addresses',
+                        'INVE Addresses',
                         null, // TO: must be null or an array
                         null, // CC: must be null or an array
                         null, // BCC: must be null or an array

@@ -71,7 +71,7 @@ angular.module('copayApp.controllers').controller('wordsController', function ($
     // 点击设备名设置页面上continue按钮后的响应函数
     this.saveDeviceName = function () {
         console.log('saveDeviceName: ' + self.deviceName);
-        var device = require('miaochaincore/device.js');
+        var device = require('intervaluecore/device.js');
         device.setDeviceName(self.deviceName);
         var opts = {deviceName: self.deviceName};
         configService.set(opts, function (err) {
@@ -437,7 +437,7 @@ angular.module('copayApp.controllers').controller('wordsController', function ($
 
 
 	if (!isCordova) {
-		var desktopApp = require('miaochaincore/desktop_app.js' + '');
+		var desktopApp = require('intervaluecore/desktop_app.js' + '');
 		self.appDataDir = desktopApp.getAppDataDir();
 	}
 	self.isCordova = isCordova;

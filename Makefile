@@ -15,47 +15,47 @@ wp8-debug:
 
 ios:
 	cordova/build.sh IOS --dbgjs
-	cd ../miaochainbuilds/project-IOS && cordova build ios
-	open ../miaochainbuilds/project-IOS/platforms/ios/MiaoChain.xcodeproj
+	cd ../intervaluebuilds/project-IOS && cordova build ios
+	open ../intervaluebuilds/project-IOS/platforms/ios/InterValue.xcodeproj
 
 ios-prod:
 	cordova/build.sh IOS --clear
-	cd ../miaochainbuilds/project-IOS && cordova build ios
+	cd ../intervaluebuilds/project-IOS && cordova build ios
 
 ios-debug:
 	cordova/build.sh IOS --dbgjs
-	cd ../miaochainbuilds/project-IOS && cordova build ios
-	open ../miaochainbuilds/project-IOS/platforms/ios/MiaoChain.xcodeproj
+	cd ../intervaluebuilds/project-IOS && cordova build ios
+	open ../intervaluebuilds/project-IOS/platforms/ios/InterValue.xcodeproj
 
 android:
-	test -d "../miaochainbuilds" || mkdir ../miaochainbuilds
+	test -d "../intervaluebuilds" || mkdir ../intervaluebuilds
 	cordova/build.sh ANDROID --clear
-	cd ../miaochainbuilds/project-ANDROID && cordova build android 2>&1 >/dev/null
-	mv ../miaochainbuilds/project-ANDROID/platforms/android/build/outputs/apk/android-debug.apk ../miaochainbuilds/MiaoChain.apk
+	cd ../intervaluebuilds/project-ANDROID && cordova build android 2>&1 >/dev/null
+	mv ../intervaluebuilds/project-ANDROID/platforms/android/build/outputs/apk/android-debug.apk ../intervaluebuilds/InterValue.apk
 
 android-prod:
 	cordova/build.sh ANDROID --clear
-	cd ../miaochainbuilds/project-ANDROID && cordova build android 2>&1 >/dev/null
-	mv ../miaochainbuilds/project-ANDROID/platforms/android/build/outputs/apk/android-debug.apk ../miaochainbuilds/MiaoChain.apk
+	cd ../intervaluebuilds/project-ANDROID && cordova build android 2>&1 >/dev/null
+	mv ../intervaluebuilds/project-ANDROID/platforms/android/build/outputs/apk/android-debug.apk ../intervaluebuilds/InterValue.apk
 
 android-prod-fast:
 	cordova/build.sh ANDROID
-#	cd ../miaochainbuilds/project-ANDROID && cordova run android --device
-	cd ../miaochainbuilds/project-ANDROID && cordova build android 2>&1 >/dev/null
-	mv ../miaochainbuilds/project-ANDROID/platforms/android/build/outputs/apk/android-debug.apk ../miaochainbuilds/MiaoChain.apk
+#	cd ../intervaluebuilds/project-ANDROID && cordova run android --device
+	cd ../intervaluebuilds/project-ANDROID && cordova build android 2>&1 >/dev/null
+	mv ../intervaluebuilds/project-ANDROID/platforms/android/build/outputs/apk/android-debug.apk ../intervaluebuilds/InterValue.apk
 
 android-debug:
 	cordova/build.sh ANDROID --dbgjs --clear
-	cd ../miaochainbuilds/project-ANDROID && cordova build android 2>&1 >/dev/null
-	mv ../miaochainbuilds/project-ANDROID/platforms/android/build/outputs/apk/android-debug.apk ../miaochainbuilds/MiaoChain.apk
+	cd ../intervaluebuilds/project-ANDROID && cordova build android 2>&1 >/dev/null
+	mv ../intervaluebuilds/project-ANDROID/platforms/android/build/outputs/apk/android-debug.apk ../intervaluebuilds/InterValue.apk
 
 android-debug-fast:
 	cordova/build.sh ANDROID --dbgjs
-	cd ../miaochainbuilds/project-ANDROID && cordova run android --device
+	cd ../intervaluebuilds/project-ANDROID && cordova run android --device
 
 win32:
 	grunt.cmd desktop
-	cp -rf node_modules ../miaochainbuilds/MiaoChain/win32/
+	cp -rf node_modules ../intervaluebuilds/InterValue/win32/
 	grunt.cmd inno32
 
 win64:
@@ -63,10 +63,10 @@ win64:
 
 linux64:
 	grunt desktop
-	cp -rf node_modules ../miaochainbuilds/MiaoChain/linux64/
+	cp -rf node_modules ../intervaluebuilds/InterValue/linux64/
 	grunt linux64
 
 osx64:
 	grunt desktop
-	cp -rf node_modules ../miaochainbuilds/MiaoChain/osx64/MiaoChain.app/Contents/Resources/app.nw/
+	cp -rf node_modules ../intervaluebuilds/InterValue/osx64/InterValue.app/Contents/Resources/app.nw/
 	grunt dmg

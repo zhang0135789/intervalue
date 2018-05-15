@@ -1,17 +1,17 @@
 'use strict';
 
-var constants = require('miaochaincore/constants.js');
-var eventBus = require('miaochaincore/event_bus.js');
-var breadcrumbs = require('miaochaincore/breadcrumbs.js');
-var ValidationUtils = require('miaochaincore/validation_utils.js');
+var constants = require('intervaluecore/constants.js');
+var eventBus = require('intervaluecore/event_bus.js');
+var breadcrumbs = require('intervaluecore/breadcrumbs.js');
+var ValidationUtils = require('intervaluecore/validation_utils.js');
 
 angular.module('copayApp.controllers')
 	.controller('walletHomeController', function ($scope, $rootScope, $timeout, $filter, $modal, $log, notification, isCordova, profileService, lodash, configService, storageService, gettext, gettextCatalog, nodeWebkit, addressService, confirmDialog, animationService, addressbookService, correspondentListService, newVersion, autoUpdatingWitnessesList) {
 
 		var self = this;
 		var home = this;
-		var conf = require('miaochaincore/conf.js');
-		var chatStorage = require('miaochaincore/chat_storage.js');
+		var conf = require('intervaluecore/conf.js');
+		var chatStorage = require('intervaluecore/chat_storage.js');
 		this.protocol = conf.program;
 		$rootScope.hideMenuBar = false;
 		$rootScope.wpInputFocused = false;
@@ -19,7 +19,7 @@ angular.module('copayApp.controllers')
 		var configWallet = config.wallet;
 		var indexScope = $scope.index;
 		$scope.currentSpendUnconfirmed = configWallet.spendUnconfirmed;
-		var network = require('miaochaincore/network.js');
+		var network = require('intervaluecore/network.js');
 
 		// INIT
 		var walletSettings = configWallet.settings;
@@ -50,7 +50,7 @@ angular.module('copayApp.controllers')
 			if (form.address && form.address.$invalid && !self.blockUx) {
 				console.log("invalid address, resetting form");
 				self.resetForm();
-				self.error = gettext('Could not recognize a valid MiaoChain QR Code');
+				self.error = gettext('Could not recognize a valid InterValue QR Code');
 			}
 		});
 
@@ -289,8 +289,8 @@ angular.module('copayApp.controllers')
 				$scope.address = address;
 				$scope.shared_address_cosigners = indexScope.shared_address_cosigners;
 
-				var walletGeneral = require('miaochaincore/wallet_general.js');
-				var walletDefinedByAddresses = require('miaochaincore/wallet_defined_by_addresses.js');
+				var walletGeneral = require('intervaluecore/wallet_general.js');
+				var walletDefinedByAddresses = require('intervaluecore/wallet_defined_by_addresses.js');
 				walletGeneral.readMyAddresses(function (arrMyAddresses) {
 					walletDefinedByAddresses.readSharedAddressDefinition(address, function (arrDefinition, creation_ts) {
 						walletDefinedByAddresses.readSharedAddressPeerAddresses(address, function (arrPeerAddresses) {
@@ -529,7 +529,7 @@ angular.module('copayApp.controllers')
 		};
 
 		function claimTextCoin(mnemonic, addr) {
-			var wallet = require('miaochaincore/wallet.js');
+			var wallet = require('intervaluecore/wallet.js');
 			wallet.receiveTextCoin(mnemonic, addr, function (err, unit, asset) {
 				$rootScope.$emit('closeModal');
 				if (err) {
@@ -743,8 +743,8 @@ angular.module('copayApp.controllers')
 				}
 			}
 			return {
-				message: "Here is your link to receive " + amount + " " + asset + usd_amount_str + ": https://miaochain.live/openapp.html#textcoin?" + mnemonic,
-				subject: "MiaoChain user beamed you money"
+				message: "Here is your link to receive " + amount + " " + asset + usd_amount_str + ": https://intervalue.live/openapp.html#textcoin?" + mnemonic,
+				subject: "InterValue user beamed you money"
 			}
 		}
 
@@ -838,7 +838,7 @@ angular.module('copayApp.controllers')
 				return self.setSendError(gettext(msg));
 			}
 
-			var wallet = require('miaochaincore/wallet.js');
+			var wallet = require('intervaluecore/wallet.js');
 			var assetInfo = $scope.index.arrBalances[$scope.index.assetIndex];
 			var asset = assetInfo.asset;
 			console.log("asset " + asset);
@@ -910,17 +910,17 @@ angular.module('copayApp.controllers')
 						return;
 					}
 
-					var device = require('miaochaincore/device.js');
+					var device = require('intervaluecore/device.js');
 					if (self.binding) {
 						if (isTextcoin) {
 							delete self.current_payment_key;
 							indexScope.setOngoingProcess(gettext('sending'), false);
-							return self.setSendError("you can send bound payments to miaochain adresses only");
+							return self.setSendError("you can send bound payments to intervalue adresses only");
 						}
 						if (!recipient_device_address)
 							throw Error('recipient device address not known');
-						var walletDefinedByAddresses = require('miaochaincore/wallet_defined_by_addresses.js');
-						var walletDefinedByKeys = require('miaochaincore/wallet_defined_by_keys.js');
+						var walletDefinedByAddresses = require('intervaluecore/wallet_defined_by_addresses.js');
+						var walletDefinedByKeys = require('intervaluecore/wallet_defined_by_keys.js');
 						var my_address;
 						// never reuse addresses as the required output could be already present
 						useOrIssueNextAddress(fc.credentials.walletId, 0, function (addressInfo) {
@@ -1077,7 +1077,7 @@ angular.module('copayApp.controllers')
 								else if (err.match(/connection closed/))
 									err = gettextCatalog.getString('[internal] connection closed') ;
 								else if (err.match(/funds from/))
-									err = err.substring(err.indexOf("from")+4, err.indexOf("for")) + gettextCatalog.getString(err.substr(0,err.indexOf("from"))) + gettextCatalog.getString(". It needs at least ")  + parseInt(err.substring(err.indexOf("for")+3, err.length)) / 1000000 + "MIAO";
+									err = err.substring(err.indexOf("from")+4, err.indexOf("for")) + gettextCatalog.getString(err.substr(0,err.indexOf("from"))) + gettextCatalog.getString(". It needs at least ")  + parseInt(err.substring(err.indexOf("for")+3, err.length)) / 1000000 + "INVE";
 								return self.setSendError(err);
 							}
 							var binding = self.binding;
@@ -1088,7 +1088,7 @@ angular.module('copayApp.controllers')
 								if (binding && binding.reverseAmount) { // create a request for reverse payment
 									if (!my_address)
 										throw Error('my address not known');
-									var paymentRequestCode = 'miaochain:' + my_address + '?amount=' + binding.reverseAmount + '&asset=' + encodeURIComponent(binding.reverseAsset);
+									var paymentRequestCode = 'intervalue:' + my_address + '?amount=' + binding.reverseAmount + '&asset=' + encodeURIComponent(binding.reverseAsset);
 									var paymentRequestText = '[reverse payment](' + paymentRequestCode + ')';
 									device.sendMessageToDevice(recipient_device_address, 'text', paymentRequestText);
 									var body = correspondentListService.formatOutgoingMessage(paymentRequestText);
@@ -1162,7 +1162,7 @@ angular.module('copayApp.controllers')
 		}
 
 		this.submitData = function () {
-			var objectHash = require('miaochaincore/object_hash.js');
+			var objectHash = require('intervaluecore/object_hash.js');
 			var fc = profileService.focusedClient;
 			var value = {};
 			var app;
@@ -1531,7 +1531,7 @@ angular.module('copayApp.controllers')
 
 		this.setFromUri = function (uri) {
 			var objRequest;
-			require('miaochaincore/uri.js')
+			require('intervaluecore/uri.js')
 				.parseUri(uri, {
 					ifError: function (err) {
 					},
@@ -1599,7 +1599,7 @@ angular.module('copayApp.controllers')
 
 				$scope.eraseTextcoin = function () {
 					(function () {
-						var wallet = require('miaochaincore/wallet.js');
+						var wallet = require('intervaluecore/wallet.js');
 						var ModalInstanceCtrl = function ($scope, $modalInstance, $sce) {
 							$scope.title = $sce.trustAsHtml(gettextCatalog.getString('Deleting the textcoin will remove the ability to claim it back or resend'));
 							$scope.cancel_button_class = 'light-gray outline';
@@ -1644,7 +1644,7 @@ angular.module('copayApp.controllers')
 
 				$scope.openInExplorer = function () {
 					var testnet = home.isTestnet ? 'testnet' : '';
-					var url = 'https://' + testnet + 'explorer.miaochain.org/#' + btx.unit;
+					var url = 'https://' + testnet + 'explorer.intervalue.org/#' + btx.unit;
 					if (typeof nw !== 'undefined')
 						nw.Shell.openExternal(url);
 					else if (isCordova)
@@ -1661,9 +1661,9 @@ angular.module('copayApp.controllers')
 				};
 
 				$scope.reSendPrivateMultiSigPayment = function () {
-					var indivisible_asset = require('miaochaincore/indivisible_asset');
-					var wallet_defined_by_keys = require('miaochaincore/wallet_defined_by_keys');
-					var walletDefinedByAddresses = require('miaochaincore/wallet_defined_by_addresses');
+					var indivisible_asset = require('intervaluecore/indivisible_asset');
+					var wallet_defined_by_keys = require('intervaluecore/wallet_defined_by_keys');
+					var walletDefinedByAddresses = require('intervaluecore/wallet_defined_by_addresses');
 					var fc = profileService.focusedClient;
 
 					function success() {
@@ -1735,8 +1735,8 @@ angular.module('copayApp.controllers')
 				};
 
 				$scope.sendPrivatePayments = function (correspondent) {
-					var indivisible_asset = require('miaochaincore/indivisible_asset');
-					var wallet_general = require('miaochaincore/wallet_general');
+					var indivisible_asset = require('intervaluecore/indivisible_asset');
+					var wallet_general = require('intervaluecore/wallet_general');
 					indivisible_asset.restorePrivateChains(btx.asset, btx.unit, btx.addressTo, function (arrRecipientChains, arrCosignerChains) {
 						wallet_general.sendPrivatePayments(correspondent.device_address, arrRecipientChains, true, null, function () {
 							modalInstance.dismiss('cancel');

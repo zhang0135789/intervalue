@@ -10,7 +10,7 @@ if [ -d "$dir" ]; then
 fi
 
 # set up your app name, architecture, and background image file name
-APP_NAME="MiaoChain"
+APP_NAME="InterValue"
 ARCH="$1"
 DMG_BACKGROUND_IMG="Background.png"
 
@@ -40,7 +40,7 @@ fi
 
 echo "Signing the app ..."
 #codesign --sign="Developer ID Application: Matrix Platform LLC" --verbose=3 --deep "${PATH_NAME}${APP_NAME}.app"
-codesign -f -s "miaochain.live" --verbose=3 --deep "${PATH_NAME}${APP_NAME}.app"
+codesign -f -s "intervalue.live" --verbose=3 --deep "${PATH_NAME}${APP_NAME}.app"
 
 # clear out any old data
 echo "Clearing ..."

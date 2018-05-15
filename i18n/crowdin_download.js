@@ -24,7 +24,7 @@ var path = require('path');
 var https = require('https');
 var AdmZip = require('adm-zip');
 
-var crowdin_identifier = 'miaochain'
+var crowdin_identifier = 'intervalue'
 
 var local_file_name2 = path.join(__dirname, 'docs/appstore_en.txt')
 var local_file_name3 = path.join(__dirname, 'docs/updateinfo_en.txt')
@@ -63,7 +63,7 @@ if (no_key == false) { // Reminder: Any changes to the script below must also be
                     '1. No changes since last translation build, or\n' +
                     '2. API limit of once per 30 minutes has not been waited.\n\n' +
                     'Since we can not guarantee that translations have been built properly, this script will end here.\n' +
-                    'Log in to MiaoChain\'s Crowdin Settings and click the "Build Project" button to assure it is built recently, and then run this ' +
+                    'Log in to InterValue\'s Crowdin Settings and click the "Build Project" button to assure it is built recently, and then run this ' +
                     'script again with the --nokey arg to download translations without checking if built.');
                 process.exit(1);
             }

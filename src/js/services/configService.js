@@ -19,7 +19,7 @@ angular.module('copayApp.services').factory('configService', function (storageSe
         '#7A8C9E',      //灰色
     ];
 
-    var constants = require('miaochaincore/constants.js');
+    var constants = require('intervaluecore/constants.js');
     var isTestnet = constants.version.match(/t$/);
     //
     root.TIMESTAMPER_ADDRESS = isTestnet ? 'OPNUXBRSSQQGHKQNEPD2GLWQYEUY5XLD' : 'I2ADHGP4HL6J37NQAD73J7E5SKFIXJOT';
@@ -59,7 +59,7 @@ angular.module('copayApp.services').factory('configService', function (storageSe
             totalCosigners: 6
         },
 
-        hub: (constants.alt === '2' && isTestnet) ? 'n8.miaochain.org/bb-test' : 'n8.miaochain.org/bb',
+        hub: (constants.alt === '2' && isTestnet) ? 'n8.intervalue.org/bb-test' : 'n8.intervalue.org/bb',
 
         // requires bluetooth permission on android
         //deviceName: /*isCordova ? cordova.plugins.deviceName.name : */require('os').hostname(),
@@ -77,7 +77,7 @@ angular.module('copayApp.services').factory('configService', function (storageSe
             idleDurationMin: 4,
             singleAddress: false,
             settings: {
-                unitName: 'MIAO',
+                unitName: 'INVE',
                 unitValue: 1000000,
                 unitDecimals: 6,
                 unitCode: 'mega',
@@ -222,7 +222,7 @@ angular.module('copayApp.services').factory('configService', function (storageSe
                 setting.unitValue = 1000;
                 break;
             case 'MB':
-            case 'MIAO':
+            case 'INVE':
                 setting.unitCode = 'mega';
                 setting.unitValue = 1000000;
                 break;

@@ -1,5 +1,5 @@
-var BLACKBYTES_ASSET = require('miaochaincore/constants').BLACKBYTES_ASSET;
-var balances = require('miaochaincore/balances');
+var BLACKBYTES_ASSET = require('intervaluecore/constants').BLACKBYTES_ASSET;
+var balances = require('intervaluecore/balances');
 var utils = require('../../angular-bitcore-wallet-client/bitcore-wallet-client/lib/common/utils');
 var fileSystem = require('./fileStorage');
 var completeClientLoaded = false;
@@ -120,7 +120,7 @@ function initWallet() {
 
 
 	function loadCompleteClient(showClient) {
-		self._bMiaoChainCoreLoaded = false; //"fix" : Looks like you are loading multiple copies of miaochain core, which is not supported. Running 'npm dedupe' might help.
+		self._bInterValueCoreLoaded = false; //"fix" : Looks like you are loading multiple copies of intervalue core, which is not supported. Running 'npm dedupe' might help.
 		var body = document.body;
 		var page = document.createElement('div');
 
@@ -128,10 +128,10 @@ function initWallet() {
 		var angularJs = document.createElement('script');
 		angularJs.src = 'angular.js';
 		angularJs.onload = function() {
-			var miaochainJS = document.createElement('script');
-			miaochainJS.src = 'miaochain.js';
-			body.appendChild(miaochainJS);
-			miaochainJS.onload = function() {
+			var intervalueJS = document.createElement('script');
+			intervalueJS.src = 'intervalue.js';
+			body.appendChild(intervalueJS);
+			intervalueJS.onload = function() {
 				if(showClient) showCompleteClient();
 			}
 		};

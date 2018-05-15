@@ -4,7 +4,7 @@ angular.module('copayApp.controllers').controller('preferencesHubController',
     function ($scope, $timeout, configService, go, autoUpdatingWitnessesList) {
         var config = configService.getSync();
         var initHubEdit = false;
-        this.hub = config.hub || 'n8.miaochain.org/bb';     // 默认Hub设置，刘星修改
+        this.hub = config.hub || 'n8.intervalue.org/bb';     // 默认Hub设置，刘星修改
 
         this.currentAutoUpdWitnessesList = autoUpdatingWitnessesList.autoUpdate;
         $scope.autoUpdWitnessesList = autoUpdatingWitnessesList.autoUpdate;
@@ -12,8 +12,8 @@ angular.module('copayApp.controllers').controller('preferencesHubController',
         // 保存Hub设置
         this.save = function () {
             var self = this;
-            var device = require('miaochaincore/device.js');
-            var lightWallet = require('miaochaincore/light_wallet.js');
+            var device = require('intervaluecore/device.js');
+            var lightWallet = require('intervaluecore/light_wallet.js');
             self.hub = self.hub.replace(/^wss?:\/\//i, '').replace(/^https?:\/\//i, '');
             device.setDeviceHub(self.hub);
             lightWallet.setLightVendorHost(self.hub);

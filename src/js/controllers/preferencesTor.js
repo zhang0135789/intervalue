@@ -4,8 +4,8 @@
 angular.module('copayApp.controllers').controller('preferencesTorController',
     function ($scope, $log, $timeout, go, configService) {
 
-        var conf = require('miaochaincore/conf.js');
-        var network = require('miaochaincore/network.js');
+        var conf = require('intervaluecore/conf.js');
+        var network = require('intervaluecore/network.js');
 
         var bInitialized = false;
 
@@ -32,7 +32,7 @@ angular.module('copayApp.controllers').controller('preferencesTorController',
 
         function saveConfToFile(cb) {
             var fs = require('fs' + '');
-            var desktopApp = require('miaochaincore/desktop_app.js');
+            var desktopApp = require('intervaluecore/desktop_app.js');
             var appDataDir = desktopApp.getAppDataDir();
             var confJson;
             try {

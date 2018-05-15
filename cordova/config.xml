@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="org.miaochain.wallet"
+<widget id="org.intervalue.wallet"
   version="1.0.0"
   android-versionCode="1062"
   ios-CFBundleVersion="1.0.0">
-    <name>MiaoChain</name>
+    <name>InterValue</name>
     <description>
-      MiaoChain wallet for testnet.
+      InterValue wallet for testnet.
     </description>
-    <author email="miaochain@miaochain.live" href="https://miaochain.live">
-        MiaoChain
+    <author email="intervalue@intervalue.live" href="https://intervalue.live">
+        InterValue
     </author>
     <content src="index.html" />
     <access origin="*" />

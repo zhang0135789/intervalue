@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Project-Id-Version: miaochain\n"
+"Project-Id-Version: intervalue\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
-"X-Crowdin-Project: miaochain\n"
+"X-Crowdin-Project: intervalue\n"
 "X-Crowdin-Language: nl\n"
 "X-Crowdin-File: /master/i18n/po/template.pot\n"
 "Last-Translator: testz <testzcrypto@gmail.com>\n"
@@ -26,8 +26,8 @@ msgid "-- Select co-signer --"
 msgstr ""
 
 #: public/views/preferencesGlobal.html:135
-msgid "About MiaoChain"
-msgstr "Over MiaoChain"
+msgid "About InterValue"
+msgstr "Over InterValue"
 
 #: src/js/controllers/copayers.js:8
 #: src/js/controllers/preferencesDelete.js:9
@@ -105,8 +105,8 @@ msgid "All Wallet Addresses"
 msgstr "Alle portefeuille adressen"
 
 #: public/views/translators.html:52
-msgid "All contributions to MiaoChain's translation are welcome. Sign up at crowdin.com and join the MiaoChain project at"
-msgstr "Alle bijdrages aan de vertaling van MiaoChain zijn welkom. Meld u aan bij crowdin.com en sluit u aan bij het MiaoChain project"
+msgid "All contributions to InterValue's translation are welcome. Sign up at crowdin.com and join the InterValue project at"
+msgstr "Alle bijdrages aan de vertaling van InterValue zijn welkom. Meld u aan bij crowdin.com en sluit u aan bij het InterValue project"
 
 #: public/views/modals/multi-payment.html:56
 msgid "Already Paid"
@@ -155,7 +155,7 @@ msgid "Asset"
 msgstr "Bezitting"
 
 #: public/views/walletHome.html:455
-msgid "Attest profile data linked to any MiaoChain address."
+msgid "Attest profile data linked to any InterValue address."
 msgstr ""
 
 #: public/views/walletHome.html:308
@@ -238,7 +238,7 @@ msgid "Browser unsupported"
 msgstr "Deze browser is niet ondersteund"
 
 #: public/views/modals/destination-address.html:119
-msgid "MiaoChain address"
+msgid "InterValue address"
 msgstr ""
 
 #: public/views/includes/password.html:24
@@ -391,8 +391,8 @@ msgid "Could not import. Check input file and password"
 msgstr "Importeren is mislukt. Controleer het input bestand en het paswoord"
 
 #: src/js/controllers/walletHome.js:49
-msgid "Could not recognize a valid MiaoChain QR Code"
-msgstr "Dit is geen geldige MiaoChain QR code"
+msgid "Could not recognize a valid InterValue QR Code"
+msgstr "Dit is geen geldige InterValue QR code"
 
 #: src/js/controllers/walletHome.js:601
 msgid "Could not send payment"
@@ -520,7 +520,7 @@ msgid "Download CSV file"
 msgstr "Download CSV bestand"
 
 #: public/views/splash.html:26
-msgid "Download the entire MiaoChain database"
+msgid "Download the entire InterValue database"
 msgstr ""
 
 #: public/views/correspondentDevice.html:26
@@ -783,8 +783,8 @@ msgid "Multidevice Wallet"
 msgstr "Portefeuille over meerdere toestellen"
 
 #: public/views/walletHome.html:222
-msgid "My MiaoChain address"
-msgstr "Mijn MiaoChain adres"
+msgid "My InterValue address"
+msgstr "Mijn InterValue adres"
 
 #: public/views/correspondentDevice.html:297
 msgid "My recording preference"
@@ -946,7 +946,7 @@ msgid "Port"
 msgstr "Poort"
 
 #: public/views/walletHome.html:461
-msgid "Post arbitrary key-value pairs of data into MiaoChain network."
+msgid "Post arbitrary key-value pairs of data into InterValue network."
 msgstr ""
 
 #: public/views/walletHome.html:452
@@ -1375,7 +1375,7 @@ msgid "To be able to restore everything, please create a full backup (find the o
 msgstr ""
 
 #: public/views/walletHome.html:517
-msgid "To be able to send arbitrary data into MiaoChain network, please switch to a single-address wallet first or create one."
+msgid "To be able to send arbitrary data into InterValue network, please switch to a single-address wallet first or create one."
 msgstr ""
 
 #: public/views/walletHome.html:360
@@ -1465,8 +1465,8 @@ msgid "WARNINGS:"
 msgstr "WAARSCHUWINGEN:"
 
 #: public/views/splash.html:53
-msgid "WELCOME TO MIAOCHAIN"
-msgstr "WELKOM BIJ MIAOCHAIN"
+msgid "WELCOME TO INTERVALUE"
+msgstr "WELKOM BIJ INTERVALUE"
 
 #: public/views/copayers.html:24
 msgid "Waiting for co-signers"
@@ -1502,8 +1502,8 @@ msgid "Wallet Name (at creation)"
 msgstr "Portefeuille naam (bij aanmaak)"
 
 #: src/js/services/profileService.js:393
-msgid "Wallet already in MiaoChain:"
-msgstr "Portefeuille bestaat reeds in MiaoChain: "
+msgid "Wallet already in InterValue:"
+msgstr "Portefeuille bestaat reeds in InterValue: "
 
 #: public/views/create.html:48
 msgid "Wallet name"
@@ -1679,7 +1679,7 @@ msgid "or"
 msgstr ""
 
 #: public/views/backup.html:24
-msgid "or backup all MiaoChain data at"
+msgid "or backup all InterValue data at"
 msgstr ""
 
 #: public/views/modals/offer-contract.html:51

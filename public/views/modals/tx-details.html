@@ -16,8 +16,8 @@
 <div class="modal-content fix-modals-touch">
   <div class="header-modal text-center enable_text_select" style="background-color: #FFFFFF;padding:18px;" >
     <div class="size-42" ng-show="btx.action != 'invalid'">
-      <span style="display:inline-block;word-break: break-all;" ng-if="btx.action == 'received'">+{{btx.amountTx}}<span style="font-size: 22px;color: #767676">&nbsp;&nbsp;MIAO</span></span>
-      <span style="display:inline-block;word-break: break-all;" ng-if="btx.action == 'sent'">-{{btx.amountTx}}<span style="font-size: 22px;color: #767676">&nbsp;&nbsp;MIAO</span></span>
+      <span style="display:inline-block;word-break: break-all;" ng-if="btx.action == 'received'">+{{btx.amountTx}}<span style="font-size: 22px;color: #767676">&nbsp;&nbsp;INVE</span></span>
+      <span style="display:inline-block;word-break: break-all;" ng-if="btx.action == 'sent'">-{{btx.amountTx}}<span style="font-size: 22px;color: #767676">&nbsp;&nbsp;INVE</span></span>
 
       <!--<div class="size-14" ng-if="btx.asset === 'base' && exchangeRates.GBYTE_USD">
           ≈ {{ btx.action == 'sent' ? '-' : '+'}} ${{ (btx.amount * exchangeRates.GBYTE_USD / 1e9).toLocaleString([], {maximumFractionDigits: 2}) }}

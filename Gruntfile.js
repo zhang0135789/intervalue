@@ -24,10 +24,10 @@ module.exports = function (grunt) {
 				command: 'rm -Rf bower_components node_modules'
 			},
 			osx64: {
-				command: '../miaochainbuilds/build-osx.sh osx64'
+				command: '../intervaluebuilds/build-osx.sh osx64'
 			},
 			osx32: {
-				command: '../miaochainbuilds/build-osx.sh osx32'
+				command: '../intervaluebuilds/build-osx.sh osx32'
 			}
 		},
 		watch: {
@@ -94,11 +94,11 @@ module.exports = function (grunt) {
 					'src/js/version.js',
 					'src/js/init.js'
 				],
-				dest: 'public/miaochain.js'
+				dest: 'public/intervalue.js'
 			},
 			css: {
 				src: ['src/css/*.css'],
-				dest: 'public/css/miaochain.css'
+				dest: 'public/css/intervalue.css'
 			},
 			foundation: {
 				src: [
@@ -117,7 +117,7 @@ module.exports = function (grunt) {
 			},
 			prod: {
 				files: {
-					'public/miaochain.js': ['public/miaochain.js'],
+					'public/intervalue.js': ['public/intervalue.js'],
 					'public/angular.js': ['public/angular.js']
 				}
 			},
@@ -168,7 +168,7 @@ module.exports = function (grunt) {
 			node_modules:{
 				expand: true,
 				src: 'node_modules/**',
-				dest: '../miaochainbuilds/MiaoChain/win64/'
+				dest: '../intervaluebuilds/InterValue/win64/'
 			},
 			
 			icons: {
@@ -189,7 +189,7 @@ module.exports = function (grunt) {
 				flatten: true,
 				options: {timestamp: true, mode: true},
 				src: ['webkitbuilds/build-osx.sh', 'webkitbuilds/Background.png'],
-				dest: '../miaochainbuilds/'
+				dest: '../intervaluebuilds/'
 			},
 			linux: {
 				options: {timestamp: true, mode: true},
@@ -198,11 +198,11 @@ module.exports = function (grunt) {
 						expand: true,
 						cwd: './webkitbuilds/',
 						src: [
-							'miaochain.desktop',
+							'intervalue.desktop',
 							'../public/img/icons/icon-white-outline.ico',
 							'../public/img/icons/icon-white-256.png'
 						],
-						dest: '../miaochainbuilds/MiaoChain/linux32/',
+						dest: '../intervaluebuilds/InterValue/linux32/',
 						flatten: true,
 						filter: 'isFile',
 						options: {timestamp: true, mode: true}
@@ -211,11 +211,11 @@ module.exports = function (grunt) {
 						expand: true,
 						cwd: './webkitbuilds/',
 						src: [
-							'miaochain.desktop',
+							'intervalue.desktop',
 							'../public/img/icons/icon-white-outline.ico',
 							'../public/img/icons/icon-white-256.png'
 						],
-						dest: '../miaochainbuilds/MiaoChain/linux64/',
+						dest: '../intervaluebuilds/InterValue/linux64/',
 						flatten: true,
 						filter: 'isFile',
 						options: {timestamp: true, mode: true}
@@ -246,8 +246,8 @@ module.exports = function (grunt) {
 				//platforms: ['win','osx64','linux'],
 				//platforms: ['osx64'],
 				platforms: [getPlatform()],
-				appName: 'MiaoChain',
-				buildDir: '../miaochainbuilds',
+				appName: 'InterValue',
+				buildDir: '../intervaluebuilds',
 				version: '0.14.7',
 				zip: false,
 				macIcns: './public/img/icons/icon-white-outline.icns',
@@ -255,8 +255,8 @@ module.exports = function (grunt) {
 				exeIco: './public/img/icons/icon-white-outline.ico',
 				macPlist: {
 					CFBundleURLTypes: [{
-						CFBundleURLName: 'MiaoChain action',
-						CFBundleURLSchemes: ['miaochain']
+						CFBundleURLName: 'InterValue action',
+						CFBundleURLSchemes: ['intervalue']
 					}], /*CFBundleIconFile: 'nw.icns',*/ LSHasLocalizedDisplayName: 0
 				}
 			},
@@ -265,21 +265,21 @@ module.exports = function (grunt) {
 		compress: {
 			linux32: {
 				options: {
-					archive: '../miaochainbuilds/miaochain-linux32.zip'
+					archive: '../intervaluebuilds/intervalue-linux32.zip'
 				},
 				expand: true,
-				cwd: '../miaochainbuilds/miaochain/linux32/',
+				cwd: '../intervaluebuilds/intervalue/linux32/',
 				src: ['**/*'],
-				dest: 'miaochain-linux32/'
+				dest: 'intervalue-linux32/'
 			},
 			linux64: {
 				options: {
-					archive: '../miaochainbuilds/MiaoChain-linux64.zip'
+					archive: '../intervaluebuilds/InterValue-linux64.zip'
 				},
 				expand: true,
-				cwd: '../miaochainbuilds/MiaoChain/linux64/',
+				cwd: '../intervaluebuilds/InterValue/linux64/',
 				src: ['**/*'],
-				dest: 'MiaoChain-linux64/'
+				dest: 'InterValue-linux64/'
 			}
 		},
 		browserify: {
@@ -287,8 +287,8 @@ module.exports = function (grunt) {
 				options: {
 					exclude: ['sqlite3', 'nw.gui', 'mysql', 'ws', 'regedit']
 				},
-				src: 'public/miaochain.js',
-				dest: 'public/miaochain.js'
+				src: 'public/intervalue.js',
+				dest: 'public/intervalue.js'
 			},
 			partialClient: {
 				options: {
@@ -304,16 +304,16 @@ module.exports = function (grunt) {
 				files: [
 					{
 						expand: true,
-						cwd: '../miaochainbuilds/miaochain-test/linux64/',
+						cwd: '../intervaluebuilds/intervalue-test/linux64/',
 						src: ['**/*'],
-						dest: '/opt/miaochain-test/'
+						dest: '/opt/intervalue-test/'
 					},
-					//{expand: true, cwd: '../miaochainbuilds/miaochain-test/linux64', src: ['miaochain.desktop'], dest: '/usr/share/applications/miaochain-test.desktop'}
+					//{expand: true, cwd: '../intervaluebuilds/intervalue-test/linux64', src: ['intervalue.desktop'], dest: '/usr/share/applications/intervalue-test.desktop'}
 				],
 				options: {
 					maintainer: {
-						name: 'MiaoChain',
-						email: 'miaochain@miaochain.live'
+						name: 'InterValue',
+						email: 'intervalue@intervalue.live'
 					},
 					long_description: 'Smart payments made simple',
 					target_architecture: 'amd64'

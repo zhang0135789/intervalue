@@ -1,6 +1,6 @@
 'use strict';
 
-var constants = require('miaochaincore/constants.js');
+var constants = require('intervaluecore/constants.js');
 
 angular.module('copayApp.services').factory('txFormatService', function (profileService, configService, lodash) {
 	var root = {};
@@ -12,10 +12,10 @@ angular.module('copayApp.services').factory('txFormatService', function (profile
 		return profileService.formatAmountWithUnit(amount, asset);
 	};
 
-	// 更改代码 交易手续费单位是 MIAO(1MIAO=1000000bytes)
+	// 更改代码 交易手续费单位是 INVE(1INVE=1000000bytes)
 	var formatFeeStr = function (fee) {
 		if (!fee) return;
-		return fee/1000000  + ' MIAO';
+		return fee/1000000  + ' INVE';
 	};
 
 	root.processTx = function (tx) {
