@@ -1,0 +1,28 @@
+<div
+        class="topbar-container"
+        ng-include="'views/includes/topbar.html'"
+        ng-init="titleSection='Hub'; goBackToState = true">
+</div>
+
+<!-- Hub设置视图 -->
+<div class="content preferences" ng-controller="preferencesHubController as prefHub"  style="background: #ECEFF6;">
+    <!--<div class="chatbgcolorheight ng-scope"></div>-->
+    <!-- 表单 -->
+    <form name="settingsHubForm" ng-submit="prefHub.save()" class="" style="background: #ECEFF6;">
+
+        <div><i class="itb" style="color:#B097E7;font-size: 25px;margin-top: -10px;"><img src="./img/Hub-icon@3x.png" width="20"/></i>
+            <i translate class="ihub" style="margin-top: -7px;font-size: 16px;">Hub URL</i>
+            <input type="text"  style="text-align: right;width: 100%;margin-top: 10px; background: #FFFFFF;height: 50px;border:0px;padding-right: 20px;font-size: 16px;" id="hub" name="hub" ng-model="prefHub.hub"></div>
+        <div class="" style="background: #FFFFFF;height: 50px;border:0px;width: 100%;padding-top: 15px;padding-right: 20px;">
+            <switch  name="autoUpdWitnessesList"  ng-model="autoUpdWitnessesList" class="green right"></switch>
+            <div translate style="padding-left: 20px;font-size: 16px;">Auto-update the witness list from this hub</div>
+        </div>
+        <input type="submit" class="button expand black round" value="{{'Save'|translate}}" style="width: 90%;margin-left: 5%;margin-top: 30px;height: 46px;padding-top: 10px;font-size: 16px;"
+               ng-style="{'background-color':'#236D97'}">
+    </form>
+    <!-- 显示信息 -->
+    <div class="size-12 text-center" translate style="color: #AEAFB1">The hub for receiving messages from other devices.
+    </div>
+</div>
+
+<div class="extra-margin-bottom"></div>
