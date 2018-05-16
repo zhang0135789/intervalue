@@ -57,7 +57,7 @@
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-exec": "^1.0.0",
-    "intervaluecore": "git+https://github.com/supergamechain/intervalue.git",
+    "intervaluecore": "git+https://github.com/supergamechain/intervaluecore.git",
     "jszip": "^3.1.3",
     "lodash": "^4.6.1",
     "minimatch": "^3.0.4",
