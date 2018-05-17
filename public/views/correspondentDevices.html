@@ -64,7 +64,7 @@
                     <!-- 点击进入对话页面 -->
                     <div ng-click="showCorrespondent(correspondent)" class="pointer chatclearfix">
                         <div class="chataddrname">{{correspondent.name}} ({{correspondent.device_address | limitTo:4}}...)</div>
-                        <div class="right text-gray chat-rigth-jt" style="margin-right:14px;">
+                        <div class="right text-gray chat-rigth-jt">
                             <!--<i class="icon-arrow-right3 size-24" ng-show="!editCorrespondentList && hideRemove"></i>-->
                             <img src="./img/chatltyou.png" class="chatarrow" ng-show="!editCorrespondentList && hideRemove"/>
                             <!--<i class="chatarrow iconfont icon-you" ng-show="!editCorrespondentList && hideRemove"></i>-->
@@ -113,7 +113,7 @@
                 <a ng-click="hideRemove = !hideRemove" translate>
                     <!--<i class="fi-minus size-18 m10r" style="vertical-align: middle;"></i>-->
                     <text ng-show="!editCorrespondentList && hideRemove" translate>Remove device</text>
-                    <text ng-show="!editCorrespondentList && !hideRemove" translate>Confirm</text>
+                    <text ng-show="!editCorrespondentList && !hideRemove" translate>Yes</text>
                 </a>
             </div>
             <div ng-include="'views/includes/menu.html'" ng-show="!index.noFocusedWallet"></div>

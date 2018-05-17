@@ -11,10 +11,10 @@
 
 <div class="bottom-bar  collapse" style="background-color: #fcfcfc" ng-click="hiderightpop($event)" id="menuxhid">
     <div ng-class="{ 'columns': index.menu.length == 5 }">
-        <div class="row collapse">
-            <div class="columns text-center bottombar-item"
+        <div class="collapse">
+            <div class="left text-center bottombar-item"
                  ng-repeat="item in index.menu | limitTo: (index.menu.length > 6 ? 5 : index.menu.length)">
-              <span ng-include="'views/includes/menu-item.html'"></span>
+                <span ng-include="'views/includes/menu-item.html'"></span>
             </div>
 
             <menu-toggle ng-show="index.menu.length > 6"></menu-toggle>
