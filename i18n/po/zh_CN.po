@@ -770,8 +770,8 @@ msgid "Home"
 msgstr "首页"
 
 #: public/views/preferencesTor.html:14
-msgid "Host"
-msgstr "主机"
+msgid "Server address"
+msgstr "服务器地址"
 
 #: public/views/preferencesGlobal.html:25
 msgid "Hub"
@@ -1066,7 +1066,7 @@ msgstr "请为此设备命名"
 
 #: public/views/preferencesTor.html:16
 msgid "Port"
-msgstr "端口号"
+msgstr "端口"
 
 #: public/views/walletHome.html:461
 msgid "Post arbitrary key-value pairs of data into InterValue network."
