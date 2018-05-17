@@ -41,7 +41,7 @@
     </nav>
 
     <!-- 主视图 -->
-    <div class="modal-content fix-modals-touch" style="padding-top: 20px;">
+    <div class="modal-content fix-modals-touch">
         <div ng-show="selectedWalletsOpt">
             <div class="onGoingProcess" ng-if="gettingAddress">
                 <div class="onGoingProcess-content dealingadd" ng-style="{'background-color':'#222'}" >
@@ -74,12 +74,12 @@
         </div>
 
         <!-- 收款地址管理 -->
-        <div ng-show="!selectedWalletsOpt" class="m20b">
+        <div ng-show="!selectedWalletsOpt">
             <!-- 非添加地址页面时，显示收款地址列表 -->
-            <ul ng-show="!addAddressbookEntry" class="no-bullet m0" ng-init="listEntries()">
+            <ul ng-show="!addAddressbookEntry" class="no-bullet m0 chattranaddaddr" ng-init="listEntries()">
                 <!-- 收款地址列表 -->
-                <li class="p10 line-b" ng-repeat="(addr, label) in list" style="background-color: #fff; ">
-                    <div ng-click="selectAddressbook(addr)" style="padding-left: 19px">
+                <li class="line-b" ng-repeat="(addr, label) in list" style="background-color: #fff;padding:4px 18px;">
+                    <div ng-click="selectAddressbook(addr)">
                         {{label}}
                         <div class="size-10 text-gray ellipsis">{{addr}}</div>
                     </div>
@@ -87,13 +87,13 @@
                     <a ng-show="selectedAddressbook[addr]" class="removeAddressbook" ng-click="remove(addr)" translate>Remove</a>
                     <!-- 编辑状态，则可选定地址 -->
                     <a class="selectAddressbook" ng-show="editAddressbook"
-                        ng-click="remove(addr)" style="float: right;position: relative;top: -48px;left: 21px;" >
+                       ng-click="remove(addr)" style="float: right;position: relative;top: -48px;left: 21px;" >
                         <img src="img/lajitong-icon@3x.png" width="20" >
                     </a>
                     <!--ng-click="toggleSelectAddressbook(addr)" style="float: right;position: relative;top: -48px;left: 21px;" >-->
                 </li>
                 <!-- 非编辑状态，则显示“添加地址”入口 -->
-                <li ng-show="!editAddressbook" style="background-color: #fff;">
+                <li ng-show="!editAddressbook" style="background-color: #fff;margin-top:20px;">
                     <a ng-click="toggleAddAddressbookEntry()" class="p10 dealingherf" style="padding: 10px 19px;">
                         <!--<i class="fi-plus size-18 m10r"></i>-->
                         <img src="img/add.png" width="24"style="margin-top: -3px;margin-right: 0.5rem;" >
@@ -111,17 +111,17 @@
                     <div class="text-warning size-12 m10b" ng-show="error" style="padding-left:20px;">{{error|translate}}</div>
                     <span ng-hide="addressbookForm.address.$pristine">
                         <!--<span class="has-error right size-12" ng-show="addressbookForm.address.$invalid && addressbook.address" style="position: absolute!important;top: 9.5rem!important;left: 10rem!important;">-->
-                            <!--<i class="icon-close-circle size-14"></i>-->
-                            <!--<span class="vm" translate>Not valid</span>-->
+                        <!--<i class="icon-close-circle size-14"></i>-->
+                        <!--<span class="vm" translate>Not valid</span>-->
                         <!--</span>-->
                         <!--<small class="right text-primary" ng-show="!addressbookForm.address.$invalid" style="display: none">-->
-                            <!--<i class="icon-checkmark-circle size-14"></i>-->
+                        <!--<i class="icon-checkmark-circle size-14"></i>-->
                         <!--</small>-->
                     </span>
                     <!-- 地址 -->
                     <div class="dealinginput">
                         <img src="img/qianbao-icon@3x.png" style="   width:20px;height:20px;margin-right: 0.8rem;">
-                       <span style="font-size: 16px;"translate>Address</span>
+                        <span style="font-size: 16px;"translate>Address</span>
                         <input type="text" id="address" name="address" ng-model="addressbook.address"
                                placeholder="{{'Wallet address'|translate}}" valid-address required>
                     </div>
@@ -136,21 +136,21 @@
                     <div class="" style="margin-top:30px;">
                         <!-- 保存 -->
                         <!--<div class="columns large-6 medium-6 small-6" >-->
-                            <!--<i ico></i>-->
-                            <!--<input type="submit"-->
-                                   <!--class="button expand round"-->
-                                   <!--value="{{'Save'|translate}}"-->
-                                   <!--ng-disabled="!addressbookForm.$valid"-->
-                                   <!--ng-click="newAddress = ''; add(addressbook)"-->
-                                   <!--style="background-color: #236d97!important;opacity: 1;height: 44px;padding: 9px;">-->
+                        <!--<i ico></i>-->
+                        <!--<input type="submit"-->
+                        <!--class="button expand round"-->
+                        <!--value="{{'Save'|translate}}"-->
+                        <!--ng-disabled="!addressbookForm.$valid"-->
+                        <!--ng-click="newAddress = ''; add(addressbook)"-->
+                        <!--style="background-color: #236d97!important;opacity: 1;height: 44px;padding: 9px;">-->
                         <!--</div>-->
                         <!-- 取消 -->
                         <!--<div class="columns large-6 medium-6 small-6">-->
-                            <!--<input type="button"-->
-                                   <!--class="button expand outline dark-gray round"-->
-                                   <!--ng-click="newAddress = ''; toggleAddAddressbookEntry()"-->
-                                   <!--value="{{'Cancel'|translate}}"-->
-                                   <!--style="border: 1px solid #236d97;color: #236d97;height: 44px;padding: 9px">-->
+                        <!--<input type="button"-->
+                        <!--class="button expand outline dark-gray round"-->
+                        <!--ng-click="newAddress = ''; toggleAddAddressbookEntry()"-->
+                        <!--value="{{'Cancel'|translate}}"-->
+                        <!--style="border: 1px solid #236d97;color: #236d97;height: 44px;padding: 9px">-->
                         <!--</div>-->
                         <div class="dealingdeleterecordbtn">
                             <input type="submit" class="button round dealingsave"  value="{{'Save'|translate}}"  ng-disabled="!addressbookForm.$valid"  ng-click="newAddress = ''; add(addressbook)">

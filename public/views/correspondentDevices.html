@@ -16,7 +16,7 @@
     <!---->
     <div></div>
     <!-- tab对应视图 -->
-    <div class="tab-view tab-in chat-tab-view" ng-show="state.is('correspondentDevices')" id="chat"  style="height:100%;">
+    <div class="tab-view tab-in chat-tab-view" ng-show="state.is('correspondentDevices')" id="chat"  style="height:100%;" ng-click="hiderightpop($event)">
         <div class="chattabtitle tab-bar" >
             <h1 translate>Message</h1>
             <a><img src="./img/chatradd.png" class="chattopdotimg right" id="chattopdotimg" ng-click="showrightpop($event)"/></a>

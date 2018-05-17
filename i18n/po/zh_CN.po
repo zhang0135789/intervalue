@@ -65,8 +65,8 @@ msgid "Accept invitation"
 msgstr "接受邀请"
 
 #: public/views/addCorrespondentDevice.html:22
-msgid "Accept invitation from the other device"
-msgstr "接受来自其他设备的邀请"
+msgid "Enter the pairing code"
+msgstr "输入对方配对码"
 
 #: public/views/preferencesInformation.html:65
 msgid "Account"
@@ -844,8 +844,8 @@ msgid "Invalid Touch ID"
 msgstr "指纹识别无效"
 
 #: public/views/addCorrespondentDevice.html:15
-msgid "Invite the other device"
-msgstr "邀请其他设备"
+msgid "Provide my pairing code"
+msgstr "提供我的配对码"
 
 #: public/views/backup.html:22
 msgid "Just the wallet seed is not enough.  With the seed alone, you won't be able to restore multisig wallets and private assets such as blackbytes."
