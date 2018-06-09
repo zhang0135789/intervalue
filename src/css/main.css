@@ -944,4 +944,88 @@ button.warning:focus,
 button.white,
 button.white:hover,
 button.white:focus,
-.button.w
+.button.white,
+.button.white:hover,
+.button.white:focus {
+  background-color: #fff;
+  color: #2C3E50;
+}
+
+/* BLACK */
+button.black,
+button.black:hover,
+button.black:focus,
+.button.black,
+.button.black:hover,
+.button.black:focus {
+  background-color: #2C3E50;
+  color: #fff;
+}
+
+/* GRAY */
+button.gray,
+button.gray:hover,
+button.gray:focus,
+.button.gray,
+.button.gray:hover,
+.button.gray:focus {
+  background-color: #A9B2B8;
+  color: #2C3E50;
+}
+
+button.disabled, button[disabled], .button.disabled, .button[disabled] {
+  border-color: transparent !important;
+  background-color: #A5B2BF !important;
+  color: #fff !important;
+}
+
+button, .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 1rem 2rem 1.0625rem 2rem;
+  font-size: 1rem;
+  background-color: #008CBA;
+  border-color: #007095;
+  color: #FFFFFF;
+  transition: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

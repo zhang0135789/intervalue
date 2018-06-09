@@ -10,9 +10,10 @@
     <!-- 表单 -->
     <form name="settingsHubForm" ng-submit="prefHub.save()" class="" style="background: #ECEFF6;">
 
-        <div><i class="itb" style="color:#B097E7;font-size: 25px;margin-top: -10px;"><img src="./img/Hub-icon@3x.png" width="20"/></i>
-            <i translate class="ihub" style="margin-top: -7px;font-size: 16px;">Hub URL</i>
-            <input type="text"  style="text-align: right;width: 100%;margin-top: 10px; background: #FFFFFF;height: 50px;border:0px;padding-right: 20px;font-size: 16px;" id="hub" name="hub" ng-model="prefHub.hub"></div>
+        <div style="display: flex;background: #fff;margin:10px 0 20px;padding:13px 18px;">
+            <img src="./img/Hub-icon@3x.png" style="margin-right:15px;width:20px;height:20px;flex-shrink: 0;" />
+            <div translate style="flex-shrink: 0;font-size: 16px;margin-right: 10px;">Hub URL</div>
+            <input type="text"  style="padding:0;height:auto;margin:0;text-align: right;width: 100%;border:0px;font-size: 16px;" id="hub" name="hub" ng-model="prefHub.hub"></div>
         <div class="" style="background: #FFFFFF;border:0px;width: 100%;padding-top: 15px;padding-right: 20px;padding-bottom: 10px;">
             <switch  name="autoUpdWitnessesList"  ng-model="autoUpdWitnessesList" class="green right settingpopbtnl"></switch>
             <div translate style="padding-left: 20px;font-size: 16px;">Auto-update the witness list from this hub</div>
