@@ -97,7 +97,7 @@
 
 
                 <!-- banner背景图 -->
-                <div class="amount" style="padding-left:0px;background-color:#236d97;margin-top: -20px;min-height: 150px"
+                <div class="amount" style="padding: 0 8px;background-color:#236d97;margin-top: -20px;min-height: 150px"
                      ng-swipe-right="index.suspendSwipe()">
                     <div ng-if="!index.anyOnGoingProcess || 1" style="position: relative;">
                         <div ng-show="index.updateError" ng-click='index.openWallet(); index.updateTxHistory()'>
@@ -110,18 +110,18 @@
                             <br><span translate>Tap to retry</span>
                         </div>
 
-                        <ul rn-carousel rn-carousel-transition="hexagon" rn-carousel-index="index.assetIndex"
+                        <ul class="clearfix" rn-carousel rn-carousel-transition="hexagon" rn-carousel-index="index.assetIndex"
                             rn-carousel-controls>
-                            <li ng-click='index.onClick()'
+                            <li class="clearfix" ng-click='index.onClick()'
                                 ng-show="!index.updateError && index.walletScanStatus != 'error'"
                                 ng-repeat="balance in index.arrBalances|filter:'base'">
                                 <!-- 过滤base页 -->
-                                <div style="padding:0;margin: -18px;padding-top:16px;" ng-click='index.updateAll(); index.updateHistoryFromNetwork()'>
+                                <div style="padding:0;margin-top:14px;" ng-click='index.updateAll(); index.updateHistoryFromNetwork()'>
                                     <!-- banner显示金额信息 -->
-                                    <strong style="font-size: 50px;color: #FFFFFF" ng-if="balance.totalStr ">
+                                    <strong style="font-size: 50px;color: #FFFFFF;word-break: break-all;line-height: 56px;" ng-if="balance.totalStr ">
                                         {{balance.totalStrWithoutUnit}}
                                     </strong>
-                                    <div style="margin-top: -10px">
+                                    <div>
                                         <span style="font-size: 26px;color: #5ba6d0">INVE</span>
                                     </div>
                                     <!-- 资产数额字符串为空，则直接显示资产金额本地字符串 -->
