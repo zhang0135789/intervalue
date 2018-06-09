@@ -97,7 +97,7 @@
 
 
                 <!-- banner背景图 -->
-                <div class="amount" style="padding: 0 8px;background-color:#236d97;margin-top: -20px;min-height: 150px"
+                <div class="amount" style="padding: 0 8px;background-color:#236d97;margin-top: -20px;min-height: 150px;height:auto;"
                      ng-swipe-right="index.suspendSwipe()">
                     <div ng-if="!index.anyOnGoingProcess || 1" style="position: relative;">
                         <div ng-show="index.updateError" ng-click='index.openWallet(); index.updateTxHistory()'>
@@ -110,9 +110,9 @@
                             <br><span translate>Tap to retry</span>
                         </div>
 
-                        <ul class="clearfix" rn-carousel rn-carousel-transition="hexagon" rn-carousel-index="index.assetIndex"
+                        <ul class="clearfix" style="margin:0;" rn-carousel-transition="hexagon" rn-carousel-index="index.assetIndex"
                             rn-carousel-controls>
-                            <li class="clearfix" ng-click='index.onClick()'
+                            <li class="clearfix" style="position:static;" ng-click='index.onClick()'
                                 ng-show="!index.updateError && index.walletScanStatus != 'error'"
                                 ng-repeat="balance in index.arrBalances|filter:'base'">
                                 <!-- 过滤base页 -->
@@ -424,37 +424,37 @@
                                             translate>
 										Pending
 									</span>
-                                <!--<div class=" small-3 columns" style="margin-left: 15px;width: 20%">-->
+                                    <!--<div class=" small-3 columns" style="margin-left: 15px;width: 20%">-->
                                     <!--&lt;!&ndash; 已收到 &ndash;&gt;-->
                                     <!--<span-->
-                                            <!--style="font-size: 16px; width: 90px;padding: 6px 0;margin-left: -15px;"-->
-                                            <!--class="tu radius bg0745bc"-->
-                                            <!--ng-show="btx.action == 'received' && btx.confirmations"-->
-                                            <!--translate>-->
-								<!--Received-->
-							<!--</span>-->
+                                    <!--style="font-size: 16px; width: 90px;padding: 6px 0;margin-left: -15px;"-->
+                                    <!--class="tu radius bg0745bc"-->
+                                    <!--ng-show="btx.action == 'received' && btx.confirmations"-->
+                                    <!--translate>-->
+                                    <!--Received-->
+                                    <!--</span>-->
                                     <!--&lt;!&ndash; 已收到 结束&ndash;&gt;-->
 
 
                                     <!--&lt;!&ndash; 已发送 &ndash;&gt;-->
                                     <!--<span-->
-                                            <!--style="font-size: 16px;width: 90px;padding: 6px 0;margin-left: -15px;"-->
-                                            <!--class="tu bga1a1a1 radius"-->
-                                            <!--ng-show="btx.action == 'sent' && btx.confirmations"-->
-                                            <!--translate>-->
-								<!--Sent-->
-							<!--</span>-->
+                                    <!--style="font-size: 16px;width: 90px;padding: 6px 0;margin-left: -15px;"-->
+                                    <!--class="tu bga1a1a1 radius"-->
+                                    <!--ng-show="btx.action == 'sent' && btx.confirmations"-->
+                                    <!--translate>-->
+                                    <!--Sent-->
+                                    <!--</span>-->
                                     <!--&lt;!&ndash; 已发送 结束&ndash;&gt;-->
 
 
                                     <!--&lt;!&ndash; 待确认 &ndash;&gt;-->
                                     <!--<span-->
-                                            <!--style="font-size: 16px;width: 90px;padding: 6px 0;margin-left: -15px;"-->
-                                            <!--class="tu bgred radius"-->
-                                            <!--ng-show="!btx.confirmations || btx.confirmations == 0"-->
-                                            <!--translate>-->
-								<!--Pending-->
-							<!--</span>-->
+                                    <!--style="font-size: 16px;width: 90px;padding: 6px 0;margin-left: -15px;"-->
+                                    <!--class="tu bgred radius"-->
+                                    <!--ng-show="!btx.confirmations || btx.confirmations == 0"-->
+                                    <!--translate>-->
+                                    <!--Pending-->
+                                    <!--</span>-->
                                     <!-- 待确认 结束-->
 
 
@@ -511,8 +511,8 @@
                                     </div>
 
                                     <!--<div ng-show="!btx.message">-->
-                                        <!--<span translate>To</span>-->
-                                        <!--: {{index.addressbook[btx.addressTo] || btx.addressTo}}-->
+                                    <!--<span translate>To</span>-->
+                                    <!--: {{index.addressbook[btx.addressTo] || btx.addressTo}}-->
                                     <!--</div>-->
                                 </div>
                             </div>
@@ -687,11 +687,11 @@
                                               ng-change="_amount=(_addresses | sumNumbers)"></textarea>
                                 </div>
                                 <!--<div ng-if="home.deviceAddressIsKnown()"-->
-                                     <!--style="font-size: 11px; font-weight: bold; margin-top: -1.5rem; margin-bottom: 1.5rem; float: left;">-->
-                                    <!--<a ng-click="home.openBindModal()" style="position: relative;top: 15px;right: -20px;">-->
-                                        <!--<span ng-if="!home.binding" translate>Bind the payment to a condition</span>-->
-                                        <!--<span ng-if="home.binding" translate>This payment is bound to a condition</span>-->
-                                    <!--</a>-->
+                                <!--style="font-size: 11px; font-weight: bold; margin-top: -1.5rem; margin-bottom: 1.5rem; float: left;">-->
+                                <!--<a ng-click="home.openBindModal()" style="position: relative;top: 15px;right: -20px;">-->
+                                <!--<span ng-if="!home.binding" translate>Bind the payment to a condition</span>-->
+                                <!--<span ng-if="home.binding" translate>This payment is bound to a condition</span>-->
+                                <!--</a>-->
                                 <!--</div>-->
                                 <div ng-if="!index.arrBalances[index.assetIndex].is_private && !home.blockUx && !home.lockAddress && home.canSendExternalPayment()"
                                      style="font-size: 11px; font-weight: bold; margin-top: -1.5rem; margin-bottom: 1.5rem; float: right;">
@@ -945,24 +945,27 @@
                 <div class="chatbgcolorheight ng-scope"></div>
                 <ul class="no-bullet m0 ">
                     <!-- 设备名 -->
-                    <li class="settintlipaddingl" ng-click="$root.go('preferencesGlobal.preferencesDeviceName')">
-                        <div class="right text-gray settintcolorl" style="margin-right: -7px;font-size: 16px;">
-                            {{prefGlobal.deviceName}}
-                            <img src="./img/settinglyou.png" class="settingarrowl right" >
-                        </div>
-                        <div >
-                            <div style="float: left;padding-right: 15px;"><img src="./img/shebei-icon@3x.png" width="20"/></div>
+                    <li class="settintlipaddingl clearfix" style="display:flex;" ng-click="$root.go('preferencesGlobal.preferencesDeviceName')">
+                        <div style="float: left;display:flex;    margin-right: 10px;flex-shrink:0;">
+                            <img src="./img/shebei-icon@3x.png" style="width: 20px;height: 18px;margin-right: 15px;margin-top: 3px;"/>
                             <div translate style="font-size: 16px;">Device name</div>
+                        </div>
+                        <div class="right text-gray settintcolorl" style="display: flex;justify-content: flex-end;text-align: right;width:100%;margin-right: -7px;font-size: 16px;">
+                            <div style="word-break: break-all;">{{prefGlobal.deviceName}}</div>
+                            <img src="./img/settinglyou.png" style="width:18px;height:18px;flex-shrink: 0;" class="settingarrowl right" >
                         </div>
                     </li>
                     <!-- Hub -->
                     <li class="settintlipaddingl clearfix" style="display:flex;" ng-click="$root.go('preferencesGlobal.preferencesHub')">
-                        <div style="float: left;display:flex;    margin-right: 10px;flex-shrink:0;"><img src="./img/hub-icon@3x.png" style="width: 20px;height: 18px;margin-right: 15px;"/><div translate style="font-size: 16px;">Hub</div></div>
+                        <div style="float: left;display:flex;    margin-right: 10px;flex-shrink:0;">
+                            <img src="./img/hub-icon@3x.png" style="width: 20px;height: 18px;margin-right: 15px;margin-top: 3px;"/>
+                            <div translate style="font-size: 16px;">Hub</div>
+                        </div>
                         <div class="right text-gray settintcolorl" style="display: flex;justify-content: flex-end;text-align: right;width:100%;margin-right: -7px;font-size: 16px;">
                             <div style="word-break: break-all;">{{prefGlobal.hub}}</div>
                             <img src="./img/settinglyou.png" style="width:18px;height:18px;flex-shrink: 0;" class="settingarrowl right" >
                         </div>
-                         </li>
+                    </li>
                     <!-- TOR匿名　ng-show="!index.isCordova" -->
                     <li ng-show="!index.isCordova"  class="settintlipaddingl" ng-click="$root.go('preferencesGlobal.preferencesTor')">
                         <div class="right text-gray settintcolorl" style="margin-right: -7px;font-size: 16px;">
