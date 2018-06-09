@@ -184,8 +184,8 @@ button{font-size: 16px !important;}
     border-radius: 26px !important;font-size: 100%;}
 
 /*首页点进去的交易页面*/
-.ptranliflex{display: flex;padding-left: 18px;}
-.ptranliflex img{margin-top:14px;}
+.ptranliflex{display: flex;padding: 13px 18px;}
+.ptranliflex img{}
 .ptranliflex .pintranliflex{display: flex;padding:14px 0;padding-right:18px;width:100%;}
 .ptranliflex .text-gray{flex-shrink:0;margin-right: 4px;}
 .ptranleftimg{width:20px;height:24px;flex-shrink:0;margin-right: 10px;}
